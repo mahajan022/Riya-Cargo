@@ -1,0 +1,9 @@
+export const LOGO        = "/images/logo.jpg";
+export const IMG_WORKERS = "/images/workers.jpg";
+export const IMG_FURN    = "/images/furniture.jpg";
+export const IMG_BOXES   = "/images/boxes.jpg";
+export const IMG_INDOOR  = "/images/indoor.jpg";
+export const IMG_TRUCK   = "/images/truck.jpg";
+export const IMG_WH1     = "/images/warehouse1.jpg";
+export const IMG_WH2     = "/images/warehouse2.jpg";
+export const IMG_OFFICE  = "/images/office.jpg";
