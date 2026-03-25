@@ -576,11 +576,7 @@ const Contact = ({setPage}) => {
           </div>
           <div style={{background:"rgba(12,26,46,0.7)",border:"1px solid var(--bd)",padding:"2.5rem",borderRadius:"12px"}}>
             <h3 style={{...H,fontWeight:800,fontSize:"1.6rem",color:"var(--w)",marginBottom:"1.6rem"}}>GET A <span style={{color:"var(--r)"}}>FREE QUOTE</span></h3>
-            {EJS_SVC==="YOUR_SERVICE_ID"&&(
-              <div style={{background:"rgba(245,166,35,0.1)",border:"1px solid rgba(245,166,35,0.3)",padding:"0.8rem 1rem",borderRadius:"6px",marginBottom:"1.2rem",...B,fontSize:"0.78rem",color:"var(--am)",lineHeight:1.6}}>
-                
-              </div>
-            )}
+            {EJS_SVC==="YOUR_SERVICE_ID"}
             {st==="success"?(
               <div style={{background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",padding:"2rem",borderRadius:"8px",textAlign:"center",color:"#4ade80"}}>
                 <div style={{fontSize:"2.5rem",marginBottom:"0.8rem"}}>✅</div>
