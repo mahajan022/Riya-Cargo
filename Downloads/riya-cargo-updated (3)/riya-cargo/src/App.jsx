@@ -580,6 +580,7 @@ const Contact = ({setPage}) => {
           </div>
           <div style={{background:"rgba(12,26,46,0.7)",border:"1px solid var(--bd)",padding:"2.5rem",borderRadius:"12px"}}>
             <h3 style={{...H,fontWeight:800,fontSize:"1.6rem",color:"var(--w)",marginBottom:"1.6rem"}}>GET A <span style={{color:"var(--r)"}}>FREE QUOTE</span></h3>
+
             {st==="success"?(
               <div style={{background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",padding:"2rem",borderRadius:"8px",textAlign:"center",color:"#4ade80"}}>
                 <div style={{fontSize:"2.5rem",marginBottom:"0.8rem"}}>✅</div>
@@ -667,7 +668,7 @@ const Footer = ({setPage}) => (
       </div>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",fontSize:"0.74rem",color:"rgba(240,242,245,0.2)",...B}}>
         <span>© 2026 Riya Cargo Movers & Packers (Regd.). All rights reserved.</span>
-        <span>Made with ❤️ in Pune | Designed by <a href="https://adswirll.com" target="_blank" rel="noreferrer" style={{color:"rgba(240,242,245,0.2)",textDecoration:"none"}}>Adswirll</a></span>
+        <span>Made with ❤️ in Pune | Designed by <a href="https://adswirll.com" target="_blank" rel="noreferrer" style={{color:"rgba(240,242,245,0.5)",textDecoration:"none"}}>Adswirll</a></span>
       </div>
     </div>
   </footer>
