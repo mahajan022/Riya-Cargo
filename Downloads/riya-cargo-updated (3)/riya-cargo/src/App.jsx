@@ -11,14 +11,11 @@ const EJS_SVC  = "YOUR_SERVICE_ID";
 const EJS_TPL  = "YOUR_TEMPLATE_ID";
 const EJS_KEY  = "YOUR_PUBLIC_KEY";
 
-const G = ({lm}) => {
-  const dark = "--nv:#060d18;--n2:#0c1a2e;--n3:#0f1e30;--w:#f0f2f5;--mu:rgba(240,242,245,0.52);--bd:rgba(255,255,255,0.08);--cardbg:rgba(12,26,46,0.6);--mmb:rgba(6,13,24,0.98);--mmbtn:rgba(240,242,245,0.7)";
-  const light = "--nv:#fdf8ee;--n2:#f5edcf;--n3:#ede0ba;--w:#2a1f0e;--mu:rgba(42,31,14,0.55);--bd:rgba(180,130,30,0.15);--cardbg:rgba(255,248,225,0.9);--mmb:rgba(253,248,238,0.99);--mmbtn:rgba(42,31,14,0.7);--navbg:rgba(253,248,238,0.97);--navborder:rgba(232,49,26,0.15)";
-  return (
+const G = () => (
   <style>{`
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--r:#e8311a;--rd:#b5240f;--am:#f5a623;${lm?light:dark}}
+    :root{--r:#e8311a;--rd:#b5240f;--am:#f5a623;--nv:#060d18;--n2:#0c1a2e;--n3:#0f1e30;--w:#f0f2f5;--mu:rgba(240,242,245,0.52);--bd:rgba(255,255,255,0.08);--cardbg:rgba(12,26,46,0.6);--mmb:rgba(6,13,24,0.98);--mmbtn:rgba(240,242,245,0.7);--navbg:rgba(6,13,24,0.97);--navborder:rgba(232,49,26,0.18)}
     html,body,#root{width:100%;max-width:100vw;overflow-x:hidden}
     html{scroll-behavior:smooth}
     body{font-family:"DM Sans",sans-serif;background:var(--nv);color:var(--w);transition:background 0.35s,color 0.35s}
@@ -50,11 +47,8 @@ const G = ({lm}) => {
     .mm.open{display:flex}
     .mm button{background:transparent;border:none;cursor:pointer;font-family:"Montserrat",sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:2px;text-transform:uppercase;color:var(--mmbtn);padding:10px 20px;transition:color 0.2s}
     .mm button:hover,.mm button.act{color:var(--r)}
-    .tog-track{width:42px;height:23px;border-radius:12px;position:relative;transition:background 0.3s;flex-shrink:0;border:1px solid rgba(255,255,255,0.2)}
-    .tog-thumb{width:17px;height:17px;border-radius:50%;background:white;position:absolute;top:2px;transition:left 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
   `}</style>
-  );
-};
+);
 
 const H = {fontFamily:"'Montserrat',sans-serif"};
 const B = {fontFamily:"'DM Sans',sans-serif"};
@@ -112,7 +106,7 @@ const CTA = ({title,sub,btn,setPage}) => (
   </div>
 );
 
-const Nav = ({page,setPage,lm,toggleLm}) => {
+const Nav = ({page,setPage}) => {
   const [sc,setSc] = useState(false);
   const [mo,setMo] = useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h);return()=>window.removeEventListener("scroll",h);},[]);
@@ -121,7 +115,7 @@ const Nav = ({page,setPage,lm,toggleLm}) => {
   return (
     <>
       <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:500,
-        background:sc?"var(--navbg)":lm?"rgba(253,248,238,0.88)":"rgba(6,13,24,0.72)",backdropFilter:"blur(16px)",
+        background:sc?"var(--navbg)":"rgba(6,13,24,0.72)",backdropFilter:"blur(16px)",
         borderBottom:sc?"1px solid var(--navborder)":"1px solid transparent",
         padding:"0 2rem",height:"62px",display:"flex",alignItems:"center",justifyContent:"space-between",transition:"all 0.35s"}}>
         <div style={{display:"flex",alignItems:"center",gap:"11px",cursor:"pointer"}} onClick={()=>go("Home")}>
@@ -134,26 +128,18 @@ const Nav = ({page,setPage,lm,toggleLm}) => {
         <div className="nl" style={{display:"flex",gap:"2px"}}>
           {ls.map(l=>(
             <button key={l} onClick={()=>go(l)} style={{background:page===l?"var(--r)":"transparent",
-              color:page===l?"white":lm?"rgba(26,26,46,0.65)":"rgba(240,242,245,0.58)",border:"none",cursor:"pointer",
+              color:page===l?"white":"rgba(240,242,245,0.58)",border:"none",cursor:"pointer",
               padding:"7px 13px",borderRadius:"4px",...H,fontWeight:700,fontSize:"0.78rem",
               letterSpacing:"1px",textTransform:"uppercase",transition:"all 0.2s"}}
-              onMouseEnter={e=>{if(page!==l)e.currentTarget.style.color=lm?"var(--r)":"white";}}
-              onMouseLeave={e=>{if(page!==l)e.currentTarget.style.color=lm?"rgba(26,26,46,0.65)":"rgba(240,242,245,0.58)";}}>
+              onMouseEnter={e=>{if(page!==l)e.currentTarget.style.color="white";}}
+              onMouseLeave={e=>{if(page!==l)e.currentTarget.style.color="rgba(240,242,245,0.58)";}}>
               {l==="Contact"?"Get Quote":l}
             </button>
           ))}
         </div>
-        <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-          <div onClick={toggleLm} title={lm?"Switch to Dark":"Switch to Light"} style={{display:"flex",alignItems:"center",gap:"6px",cursor:"pointer",padding:"4px 8px",borderRadius:"20px",background:lm?"rgba(232,49,26,0.08)":"rgba(255,255,255,0.08)",border:"1px solid var(--bd)",transition:"all 0.2s"}}>
-            <span style={{fontSize:"0.85rem"}}>{lm?"☀️":"🌙"}</span>
-            <div className="tog-track" style={{background:lm?"var(--r)":"rgba(255,255,255,0.2)"}}>
-              <div className="tog-thumb" style={{left:lm?"22px":"3px"}}/>
-            </div>
-          </div>
-          <button className="hb" onClick={()=>setMo(true)} style={{display:"none",background:"transparent",border:"none",cursor:"pointer",flexDirection:"column",gap:"5px",padding:"4px"}}>
+        <button className="hb" onClick={()=>setMo(true)} style={{display:"none",background:"transparent",border:"none",cursor:"pointer",flexDirection:"column",gap:"5px",padding:"4px"}}>
           {[0,1,2].map(i=><span key={i} style={{width:"22px",height:"2px",background:"var(--w)",display:"block",borderRadius:"2px"}}/>)}
         </button>
-        </div>
       </nav>
       <div className={`mm ${mo?"open":""}`}>
         <button onClick={()=>setMo(false)} style={{position:"absolute",top:"20px",right:"20px",fontSize:"1.8rem",color:"var(--mu)"}}>✕</button>
@@ -695,13 +681,11 @@ const Footer = ({setPage}) => (
 /* ── APP ───────────────────────────────────────────────── */
 export default function App() {
   const [page,setPage] = useState("Home");
-  const [lm,setLm] = useState(false);
   const go = p => {window.scrollTo({top:0,behavior:"smooth"});setPage(p);};
-  const toggleLm = () => setLm(x=>!x);
   return (
     <>
-      <G lm={lm}/>
-      <Nav page={page} setPage={go} lm={lm} toggleLm={toggleLm}/>
+      <G/>
+      <Nav page={page} setPage={go}/>
       <main>
         {page==="Home"     && <Home     setPage={go}/>}
         {page==="About"    && <About    setPage={go}/>}
