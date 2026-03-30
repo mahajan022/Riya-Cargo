@@ -666,7 +666,7 @@ const Footer = ({setPage}) => (
           </div>
         </div>
       </div>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",fontSize:"0.74rem",color:"rgba(240,242,245,0.2)",...B}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",fontSize:"0.74rem",color:"rgba(240,242,245,0.6)",...B}}>
         <span>© 2026 Riya Cargo Movers & Packers (Regd.). All rights reserved.</span>
         <span>Made with ❤️ in Pune | Designed by <a href="https://adswirll.com" target="_blank" rel="noreferrer" style={{color:"rgba(240,242,245,0.5)",textDecoration:"none"}}>Adswirll</a></span>
       </div>
