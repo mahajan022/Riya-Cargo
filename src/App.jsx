@@ -64,13 +64,17 @@ const Tag = ({ text }) => (
   <div style={{ display:"inline-block", background:"var(--accl)", color:"var(--accd)", padding:"3px 13px", borderRadius:"3px", ...H, fontWeight:700, fontSize:"0.68rem", letterSpacing:"2px", textTransform:"uppercase", marginBottom:"0.7rem", border:"1px solid rgba(212,153,26,0.25)" }}>{text}</div>
 );
 
-const Btn = ({ children, onClick, outline }) => (
-  <button onClick={onClick} style={{ background: outline?"transparent":"var(--acc)", color: outline?"var(--acc)":"var(--black)", border: outline?"2px solid var(--acc)":"none", padding:"11px 26px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.82rem", letterSpacing:"0.8px", textTransform:"uppercase", transition:"all 0.22s" }}
-    onMouseEnter={e=>{ e.currentTarget.style.background=outline?"var(--acc)":"var(--accd)"; if(outline)e.currentTarget.style.color="var(--black)"; e.currentTarget.style.transform="translateY(-2px)"; }}
-    onMouseLeave={e=>{ e.currentTarget.style.background=outline?"transparent":"var(--acc)"; if(outline)e.currentTarget.style.color="var(--acc)"; e.currentTarget.style.transform="translateY(0)"; }}>
-    {children}
-  </button>
-);
+const Btn = ({ children, onClick, outline }) => {
+  const [hov, setHov] = useState(false);
+  const bg = outline ? (hov ? "var(--acc)" : "transparent") : "var(--acc)";
+  const cl = outline ? (hov ? "var(--black)" : "var(--acc)") : "var(--black)";
+  return (
+    <button onClick={onClick} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
+      style={{ background:bg, color:cl, border:outline?"2px solid var(--acc)":"none", padding:"11px 26px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.82rem", letterSpacing:"0.8px", textTransform:"uppercase", transition:"all 0.22s", transform:hov?"translateY(-2px)":"translateY(0)", boxShadow:hov?"0 6px 20px rgba(212,153,26,0.4)":"none" }}>
+      {children}{hov ? " →" : ""}
+    </button>
+  );
+};
 
 const PH = ({ tag, title, setPage }) => (
   <div style={{ background:"#f4f0e6", padding:"5rem 2rem 2.8rem", position:"relative", borderBottom:"1px solid var(--border)" }}>
