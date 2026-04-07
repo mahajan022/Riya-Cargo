@@ -213,10 +213,14 @@ const Hero = ({ setPage }) => {
               <button onClick={()=>setSt("idle")} style={{ marginTop:"1rem", background:"var(--acc)", color:"var(--black)", border:"none", padding:"8px 20px", borderRadius:"4px", cursor:"pointer", ...H, fontWeight:700, fontSize:"0.8rem" }}>Submit Again</button>
             </div>
           ):(
-            <div style={{ background:"rgba(255,255,255,0.97)", backdropFilter:"blur(16px)", borderRadius:"10px", padding:"1.8rem 1.8rem 1.6rem", boxShadow:"0 12px 40px rgba(0,0,0,0.3)", border:"1px solid rgba(255,255,255,0.6)" }}>
-              <div style={{ ...H, fontWeight:800, fontSize:"1.1rem", color:"var(--black)", marginBottom:"0.2rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
-              <div style={{ ...B, fontSize:"0.72rem", color:"var(--grey)", marginBottom:"1.2rem" }}>Reply within 2 hrs · No obligation · 100% Free</div>
-              {/* 2-col grid for fields */}
+            <div style={{ background:"white", borderRadius:"10px", overflow:"hidden", boxShadow:"0 12px 40px rgba(0,0,0,0.3)" }}>
+              {/* Dark header strip */}
+              <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1rem 1.4rem", borderBottom:"3px solid var(--acc)" }}>
+                <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white", marginBottom:"0.15rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
+                <div style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.45)" }}>Reply within 2 hrs · No obligation · 100% Free</div>
+              </div>
+              {/* Form fields */}
+              <div style={{ padding:"1.4rem" }}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.7rem" }}>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Name *</label><input style={inp} placeholder="Full Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} /></div>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Phone *</label><input style={inp} placeholder="+91 XXXXX XXXXX" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} /></div>
@@ -234,11 +238,12 @@ const Hero = ({ setPage }) => {
                 </div>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Date</label><input type="date" style={inp} value={form.date} onChange={e=>setForm({...form,date:e.target.value})} /></div>
               </div>
-              <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", marginTop:"1rem", background:st==="sending"?"#bbb":"var(--acc)", color:"var(--black)", border:"none", padding:"11px", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.85rem", letterSpacing:"0.5px", textTransform:"uppercase", transition:"background 0.2s" }}
-                onMouseEnter={e=>{ if(st!=="sending") e.currentTarget.style.background="var(--accd)"; }}
-                onMouseLeave={e=>{ if(st!=="sending") e.currentTarget.style.background="var(--acc)"; }}>
+              <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", marginTop:"1rem", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"11px", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.85rem", letterSpacing:"0.5px", textTransform:"uppercase", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}
+                onMouseEnter={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 6px 22px rgba(212,153,26,0.5)"; e.currentTarget.style.transform="translateY(-2px)"; }}}
+                onMouseLeave={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 4px 15px rgba(212,153,26,0.3)"; e.currentTarget.style.transform="translateY(0)"; }}}>
                 {st==="sending"?"Sending...":"Get Free Quote →"}
               </button>
+              </div>
             </div>
           )}
         </div>
