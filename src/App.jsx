@@ -560,7 +560,7 @@ const Contact = ({ setPage }) => {
       if(res.ok){setSt("success");setForm({name:"",phone:"",email:"",from:"",to:"",service:"",date:"",msg:""});}else setSt("error");
     }catch(e){setSt("success");}
   };
-  const inp={width:"100%",padding:"10px 13px",background:"white",border:"1.5px solid var(--border)",borderRadius:"4px",color:"var(--dark)",fontFamily:"'Open Sans',sans-serif",fontSize:"0.88rem",transition:"border-color 0.2s"};
+  const inp={width:"100%",padding:"10px 13px",background:"var(--bgalt)",border:"1.5px solid var(--border)",borderRadius:"6px",color:"var(--dark)",fontFamily:"'Open Sans',sans-serif",fontSize:"0.88rem",transition:"border-color 0.2s"};
   const lbl={display:"block",fontSize:"0.68rem",fontWeight:700,fontFamily:"'Poppins',sans-serif",color:"var(--grey)",marginBottom:"5px",letterSpacing:"0.8px",textTransform:"uppercase"};
   const bind=(k)=>({value:form[k],onChange:e=>setForm({...form,[k]:e.target.value})});
   return (
@@ -584,10 +584,15 @@ const Contact = ({ setPage }) => {
               </div>
             ))}
           </div>
-          <div style={{ background:"var(--bgalt)", border:"1px solid var(--border)", borderTop:"4px solid var(--acc)", padding:"2rem 2.2rem", borderRadius:"8px" }}>
-            <h3 style={{ ...H, fontWeight:800, fontSize:"1.4rem", color:"var(--black)", marginBottom:"1.4rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></h3>
+          <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"1px solid var(--border)" }}>
+            {/* Form header */}
+            <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
+              <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
+              <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>Reply within 2 hours · No obligation · 100% Free</div>
+            </div>
+            <div style={{ padding:"1.8rem 2rem" }}>
             {st==="success"?(
-              <div style={{ background:"white", border:"1px solid #c3e6cb", padding:"2rem", borderRadius:"6px", textAlign:"center" }}>
+              <div style={{ background:"#f0fdf4", border:"1px solid #c3e6cb", padding:"2rem", borderRadius:"8px", textAlign:"center" }}>
                 <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
                 <h4 style={{ ...H, fontWeight:800, fontSize:"1.2rem", color:"#2d6a4f", marginBottom:"0.4rem" }}>REQUEST SENT!</h4>
                 <p style={{ ...B, color:"#40916c", fontSize:"0.88rem" }}>We'll call you within 2 hours to confirm.</p>
@@ -595,16 +600,16 @@ const Contact = ({ setPage }) => {
               </div>
             ):(
               <>
-                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.8rem", marginBottom:"0.8rem" }}>
+                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.9rem", marginBottom:"0.9rem" }}>
                   <div><label style={lbl}>Your Name *</label><input style={inp} placeholder="Full Name" {...bind("name")} /></div>
                   <div><label style={lbl}>Phone *</label><input style={inp} placeholder="+91 XXXXX XXXXX" {...bind("phone")} /></div>
                 </div>
-                <div style={{ marginBottom:"0.8rem" }}><label style={lbl}>Email</label><input style={inp} placeholder="your@email.com" {...bind("email")} /></div>
-                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.8rem", marginBottom:"0.8rem" }}>
+                <div style={{ marginBottom:"0.9rem" }}><label style={lbl}>Email</label><input style={inp} placeholder="your@email.com" {...bind("email")} /></div>
+                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.9rem", marginBottom:"0.9rem" }}>
                   <div><label style={lbl}>Moving From</label><input style={inp} placeholder="City / Area" {...bind("from")} /></div>
                   <div><label style={lbl}>Moving To</label><input style={inp} placeholder="City / Area" {...bind("to")} /></div>
                 </div>
-                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.8rem", marginBottom:"0.8rem" }}>
+                <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.9rem", marginBottom:"0.9rem" }}>
                   <div><label style={lbl}>Service</label>
                     <select style={{ ...inp, cursor:"pointer" }} value={form.service} onChange={e=>setForm({...form,service:e.target.value})}>
                       <option value="">Select service...</option>
@@ -615,14 +620,15 @@ const Contact = ({ setPage }) => {
                   </div>
                   <div><label style={lbl}>Moving Date</label><input type="date" style={inp} {...bind("date")} /></div>
                 </div>
-                <div style={{ marginBottom:"1rem" }}><label style={lbl}>Message</label><textarea style={{ ...inp, resize:"vertical", minHeight:"76px" }} placeholder="Tell us more about your move..." {...bind("msg")} /></div>
-                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", background:st==="sending"?"#bbb":"var(--acc)", color:"var(--black)", border:"none", padding:"13px", ...H, fontWeight:800, fontSize:"0.88rem", letterSpacing:"1.2px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"4px", transition:"background 0.2s" }}
-                  onMouseEnter={e=>{ if(st!=="sending") e.currentTarget.style.background="var(--accd)"; }}
-                  onMouseLeave={e=>{ if(st!=="sending") e.currentTarget.style.background="var(--acc)"; }}>
+                <div style={{ marginBottom:"1.2rem" }}><label style={lbl}>Message</label><textarea style={{ ...inp, resize:"vertical", minHeight:"76px" }} placeholder="Tell us more about your move..." {...bind("msg")} /></div>
+                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"14px", ...H, fontWeight:800, fontSize:"0.9rem", letterSpacing:"1.5px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}
+                  onMouseEnter={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 6px 22px rgba(212,153,26,0.5)"; e.currentTarget.style.transform="translateY(-2px)"; }}}
+                  onMouseLeave={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 4px 15px rgba(212,153,26,0.3)"; e.currentTarget.style.transform="translateY(0)"; }}}>
                   {st==="sending"?"Sending...":"Send My Request →"}
                 </button>
               </>
             )}
+            </div>
           </div>
         </div>
       </div>
