@@ -40,12 +40,22 @@ const G = () => (
       .g2{grid-template-columns:1fr!important} .g3{grid-template-columns:1fr 1fr!important}
       .g4{grid-template-columns:1fr 1fr!important} .gsd{grid-template-columns:1fr!important}
       .gal{columns:2!important} .cgrid{grid-template-columns:1fr!important}
-      .fgrid{grid-template-columns:1fr 1fr!important} .hero-inner{flex-direction:column!important}
+      .fgrid{grid-template-columns:1fr 1fr!important}
+      .hero-inner{flex-direction:column!important; padding:2.5rem 1.5rem 2rem!important; gap:2rem!important}
+      .hero-form{flex:unset!important; width:100%!important}
+      .hero-text{text-align:center}
+      .hero-stats{justify-content:center!important}
+      .hero-dots{justify-content:center!important}
+      .sec{padding:3rem 1.2rem!important}
+      .ph{padding:4rem 1.2rem 2rem!important}
     }
     @media(max-width:560px){
       .g3{grid-template-columns:1fr!important} .g4{grid-template-columns:1fr!important}
       .gal{columns:1!important} .fgrid{grid-template-columns:1fr!important}
       .frow{grid-template-columns:1fr!important}
+      .hero-form-grid{grid-template-columns:1fr!important}
+      .top-bar-right{display:none!important}
+      .sec{padding:2.5rem 1rem!important}
     }
     .mm{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,0.99);flex-direction:column;align-items:center;justify-content:center;gap:1rem}
     .mm.open{display:flex}
@@ -77,7 +87,7 @@ const Btn = ({ children, onClick, outline }) => {
 };
 
 const PH = ({ tag, title, setPage }) => (
-  <div style={{ background:"#f4f0e6", padding:"5rem 2rem 2.8rem", position:"relative", borderBottom:"1px solid var(--border)" }}>
+  <div className="ph" style={{ background:"#f4f0e6", padding:"5rem 2rem 2.8rem", position:"relative", borderBottom:"1px solid var(--border)" }}>
     <div style={{ position:"absolute", top:0, left:0, right:0, height:"4px", background:"var(--acc)" }} />
     <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
       <Tag text={tag} />
@@ -115,7 +125,7 @@ const Nav = ({ page, setPage }) => {
           <a href="tel:9146171008" style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.75)", textDecoration:"none", fontWeight:500 }}>📞 +91 91461 71008</a>
           <a href="mailto:info.riyacargopune@gmail.com" style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.75)", textDecoration:"none", fontWeight:500 }}>✉️ info.riyacargopune@gmail.com</a>
         </div>
-        <div style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.5)" }}>GSTIN: 33BTFPA7894F1ZN &nbsp;|&nbsp; ISO 9001-2015 Certified</div>
+        <div className="top-bar-right" style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.5)" }}>GSTIN: 33BTFPA7894F1ZN &nbsp;|&nbsp; ISO 9001-2015 Certified</div>
       </div>
       {/* main nav */}
       <nav style={{ position:"sticky", top:0, zIndex:500, background:"white", boxShadow: sc?"0 2px 14px rgba(0,0,0,0.1)":"0 1px 0 var(--border)", padding:"0 2rem", height:"62px", display:"flex", alignItems:"center", justifyContent:"space-between", transition:"box-shadow 0.3s" }}>
@@ -169,30 +179,30 @@ const Hero = ({ setPage }) => {
   const lbl = { display:"block", ...H, fontWeight:600, fontSize:"0.63rem", color:"rgba(255,255,255,0.7)", marginBottom:"4px", textTransform:"uppercase", letterSpacing:"0.8px" };
 
   return (
-    <div style={{ position:"relative", height:"88vh", minHeight:"500px", maxHeight:"780px", overflow:"hidden" }}>
+    <div style={{ position:"relative", minHeight:"88vh", maxHeight:"780px", overflow:"hidden", display:"flex", alignItems:"stretch" }}>
       {/* Carousel */}
       {slides.map((src,i)=>(
         <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
       ))}
-      {/* Overlay — lighter on right so form stands out cleanly */}
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.76) 0%, rgba(10,10,10,0.65) 45%, rgba(10,10,10,0.52) 100%)" }} />
+      <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.68) 45%, rgba(10,10,10,0.55) 100%)" }} />
+      <div style={{ position:"relative", zIndex:5, width:"100%", display:"flex" }}>
 
       {/* Content */}
-      <div className="hero-inner" style={{ position:"relative", zIndex:5, height:"100%", maxWidth:"1280px", margin:"0 auto", padding:"0 2.5rem", display:"flex", alignItems:"center", gap:"3rem" }}>
+      <div className="hero-inner" style={{ width:"100%", maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3rem", display:"flex", alignItems:"center", gap:"3rem" }}>
 
-        {/* Left text — takes remaining space */}
-        <div style={{ flex:"1 1 0", minWidth:0 }}>
+        {/* Left text */}
+        <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
           <div style={{ display:"inline-flex", alignItems:"center", gap:"7px", background:"rgba(212,153,26,0.18)", border:"1px solid rgba(212,153,26,0.4)", padding:"3px 12px 3px 5px", borderRadius:"30px", marginBottom:"1.1rem", animation:"fadeUp 0.7s ease both" }}>
             <span style={{ background:"var(--acc)", color:"var(--black)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>ISO CERTIFIED</span>
             <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>PUNE'S TRUSTED MOVERS</span>
           </div>
-          <h1 style={{ ...H, fontWeight:900, fontSize:"clamp(2.1rem,4.2vw,3.4rem)", lineHeight:1.1, color:"white", animation:"fadeUp 0.8s ease 0.1s both", marginBottom:"0.9rem", textShadow:"0 2px 10px rgba(0,0,0,0.4)" }}>
+          <h1 style={{ ...H, fontWeight:900, fontSize:"clamp(1.8rem,4.2vw,3.4rem)", lineHeight:1.1, color:"white", animation:"fadeUp 0.8s ease 0.1s both", marginBottom:"0.9rem", textShadow:"0 2px 10px rgba(0,0,0,0.4)" }}>
             YOUR MOVE.<br /><span style={{ color:"var(--acc)" }}>OUR PROMISE.</span>
           </h1>
-          <p style={{ ...B, fontSize:"0.94rem", color:"rgba(255,255,255,0.75)", maxWidth:"380px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.8rem" }}>
+          <p style={{ ...B, fontSize:"0.92rem", color:"rgba(255,255,255,0.75)", maxWidth:"380px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.5rem" }}>
             Professional packing, safe transport & stress-free relocation for homes and offices across India.
           </p>
-          <div style={{ display:"flex", gap:"2.2rem", flexWrap:"wrap", animation:"fadeUp 0.8s ease 0.3s both" }}>
+          <div className="hero-stats" style={{ display:"flex", gap:"2rem", flexWrap:"wrap", animation:"fadeUp 0.8s ease 0.3s both" }}>
             {[["5000+","Moves Done"],["15+","Years Exp"],["100%","Safe Delivery"]].map(([n,l])=>(
               <div key={n}>
                 <div style={{ ...H, fontWeight:900, fontSize:"1.7rem", color:"var(--acc)" }}>{n}</div>
@@ -200,15 +210,15 @@ const Hero = ({ setPage }) => {
               </div>
             ))}
           </div>
-          <div style={{ display:"flex", gap:"6px", marginTop:"1.8rem" }}>
+          <div className="hero-dots" style={{ display:"flex", gap:"6px", marginTop:"1.5rem" }}>
             {slides.map((_,i)=>(
               <button key={i} onClick={()=>setSl(i)} style={{ width:sl===i?"22px":"6px", height:"6px", borderRadius:"3px", background:sl===i?"var(--acc)":"rgba(255,255,255,0.28)", border:"none", cursor:"pointer", transition:"all 0.35s", padding:0 }} />
             ))}
           </div>
         </div>
 
-        {/* Right: wider 2-col form */}
-        <div style={{ flex:"0 0 420px", animation:"fadeUp 0.8s ease 0.15s both" }}>
+        {/* Right: form */}
+        <div className="hero-form" style={{ flex:"0 0 420px", animation:"fadeUp 0.8s ease 0.15s both" }}>
           {st==="success" ? (
             <div style={{ background:"white", borderRadius:"10px", padding:"2.5rem", textAlign:"center" }}>
               <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
@@ -225,7 +235,7 @@ const Hero = ({ setPage }) => {
               </div>
               {/* Form fields */}
               <div style={{ padding:"1.4rem" }}>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.7rem" }}>
+              <div className="hero-form-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.7rem" }}>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Name *</label><input style={inp} placeholder="Full Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} /></div>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Phone *</label><input style={inp} placeholder="+91 XXXXX XXXXX" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} /></div>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Moving From</label><input style={inp} placeholder="City / Area" value={form.from} onChange={e=>setForm({...form,from:e.target.value})} /></div>
@@ -251,6 +261,7 @@ const Hero = ({ setPage }) => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );
@@ -284,7 +295,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* ABOUT */}
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div className="g2" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"center" }}>
           <div>
             <Tag text="About Riya Cargo" />
@@ -308,7 +319,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* SERVICES */}
-      <div style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="What We Offer" />
@@ -330,7 +341,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* PROCESS */}
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="How It Works" />
@@ -353,7 +364,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* GALLERY PREVIEW */}
-      <div style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2rem" }}>
             <Tag text="Our Work" />
@@ -371,7 +382,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* TESTIMONIALS */}
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Client Reviews" />
@@ -407,7 +418,7 @@ const Home = ({ setPage }) => {
 const About = ({ setPage }) => (
   <div style={{ animation:"fadeIn 0.4s ease" }}>
     <PH tag="Our Story" title="About Us" setPage={setPage} />
-    <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+    <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
       <div className="g2" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"1.2fr 0.8fr", gap:"4rem", alignItems:"start" }}>
         <div>
           <Tag text="Who We Are" />
@@ -424,7 +435,7 @@ const About = ({ setPage }) => (
         </div>
       </div>
     </div>
-    <div style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
+    <div className="sec" style={{ background:"var(--bgalt)", padding:"5rem 2rem" }}>
       <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
         <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
           <Tag text="Our Values" />
@@ -448,7 +459,7 @@ const About = ({ setPage }) => (
         </div>
       </div>
     </div>
-    <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+    <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
       <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
         <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
           <Tag text="Leadership" />
@@ -490,7 +501,7 @@ const Services = ({ setPage }) => {
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
       <PH tag="Full-Service Moving" title="Our Services" setPage={setPage} />
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Comprehensive Solutions" />
@@ -533,7 +544,7 @@ const Gallery = ({ setPage }) => {
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
       <PH tag="Our Work in Pictures" title="Gallery" setPage={setPage} />
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Real Moves" />
@@ -575,7 +586,7 @@ const Contact = ({ setPage }) => {
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
       <PH tag="Reach Out" title="Contact Us" setPage={setPage} />
-      <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
+      <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div className="cgrid" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"0.85fr 1.15fr", gap:"3.5rem", alignItems:"stretch" }}>
           <div>
             <Tag text="Get in Touch" />
