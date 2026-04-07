@@ -41,11 +41,11 @@ const G = () => (
       .g4{grid-template-columns:1fr 1fr!important} .gsd{grid-template-columns:1fr!important}
       .gal{columns:2!important} .cgrid{grid-template-columns:1fr!important}
       .fgrid{grid-template-columns:1fr 1fr!important}
-      .hero-inner{flex-direction:column!important; padding:2.5rem 1.5rem 2rem!important; gap:2rem!important}
+      .hero-inner{flex-direction:column!important; padding:3rem 1.5rem 2.5rem!important; gap:2rem!important; min-height:unset!important; align-items:flex-start!important}
       .hero-form{flex:unset!important; width:100%!important}
-      .hero-text{text-align:center}
-      .hero-stats{justify-content:center!important}
-      .hero-dots{justify-content:center!important}
+      .hero-text p{max-width:100%!important}
+      .hero-stats{justify-content:flex-start!important}
+      .hero-dots{justify-content:flex-start!important}
       .sec{padding:3rem 1.2rem!important}
       .ph{padding:4rem 1.2rem 2rem!important}
     }
@@ -56,6 +56,7 @@ const G = () => (
       .hero-form-grid{grid-template-columns:1fr!important}
       .top-bar-right{display:none!important}
       .sec{padding:2.5rem 1rem!important}
+      .hero-inner{padding:2.5rem 1rem 2rem!important}
     }
     .mm{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,0.99);flex-direction:column;align-items:center;justify-content:center;gap:1rem}
     .mm.open{display:flex}
@@ -179,16 +180,17 @@ const Hero = ({ setPage }) => {
   const lbl = { display:"block", ...H, fontWeight:600, fontSize:"0.63rem", color:"rgba(255,255,255,0.7)", marginBottom:"4px", textTransform:"uppercase", letterSpacing:"0.8px" };
 
   return (
-    <div style={{ position:"relative", minHeight:"88vh", maxHeight:"780px", overflow:"hidden", display:"flex", alignItems:"stretch" }}>
-      {/* Carousel */}
-      {slides.map((src,i)=>(
-        <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
-      ))}
-      <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.68) 45%, rgba(10,10,10,0.55) 100%)" }} />
-      <div style={{ position:"relative", zIndex:5, width:"100%", display:"flex" }}>
+    <div style={{ position:"relative", overflow:"hidden" }}>
+      {/* Carousel bg — fixed height on desktop, auto on mobile */}
+      <div style={{ position:"absolute", inset:0 }}>
+        {slides.map((src,i)=>(
+          <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
+        ))}
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.72) 50%, rgba(10,10,10,0.60) 100%)" }} />
+      </div>
 
-      {/* Content */}
-      <div className="hero-inner" style={{ width:"100%", maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3rem", display:"flex", alignItems:"center", gap:"3rem" }}>
+      {/* Content — determines height */}
+      <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", display:"flex", alignItems:"center", gap:"3rem", minHeight:"88vh" }}>
 
         {/* Left text */}
         <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
@@ -261,7 +263,6 @@ const Hero = ({ setPage }) => {
             </div>
           )}
         </div>
-      </div>
       </div>
     </div>
   );
