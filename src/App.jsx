@@ -567,7 +567,7 @@ const Contact = ({ setPage }) => {
     <div style={{ animation:"fadeIn 0.4s ease" }}>
       <PH tag="Reach Out" title="Contact Us" setPage={setPage} />
       <div style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
-        <div className="cgrid" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"0.85fr 1.15fr", gap:"3.5rem" }}>
+        <div className="cgrid" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"0.85fr 1.15fr", gap:"3.5rem", alignItems:"stretch" }}>
           <div>
             <Tag text="Get in Touch" />
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>WE'RE HERE TO <span style={{ color:"var(--acc)" }}>HELP YOU MOVE</span></h2>
@@ -584,13 +584,13 @@ const Contact = ({ setPage }) => {
               </div>
             ))}
           </div>
-          <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"1px solid var(--border)" }}>
+          <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"2px solid var(--acc)", display:"flex", flexDirection:"column" }}>
             {/* Form header */}
             <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
               <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
               <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>Reply within 2 hours · No obligation · 100% Free</div>
             </div>
-            <div style={{ padding:"1.8rem 2rem" }}>
+            <div style={{ padding:"1.8rem 2rem", flex:1, display:"flex", flexDirection:"column" }}>
             {st==="success"?(
               <div style={{ background:"#f0fdf4", border:"1px solid #c3e6cb", padding:"2rem", borderRadius:"8px", textAlign:"center" }}>
                 <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
@@ -600,6 +600,7 @@ const Contact = ({ setPage }) => {
               </div>
             ):(
               <>
+                <div style={{ flex:1 }}>
                 <div className="frow" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.9rem", marginBottom:"0.9rem" }}>
                   <div><label style={lbl}>Your Name *</label><input style={inp} placeholder="Full Name" {...bind("name")} /></div>
                   <div><label style={lbl}>Phone *</label><input style={inp} placeholder="+91 XXXXX XXXXX" {...bind("phone")} /></div>
@@ -620,8 +621,9 @@ const Contact = ({ setPage }) => {
                   </div>
                   <div><label style={lbl}>Moving Date</label><input type="date" style={inp} {...bind("date")} /></div>
                 </div>
-                <div style={{ marginBottom:"1.2rem" }}><label style={lbl}>Message</label><textarea style={{ ...inp, resize:"vertical", minHeight:"76px" }} placeholder="Tell us more about your move..." {...bind("msg")} /></div>
-                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"14px", ...H, fontWeight:800, fontSize:"0.9rem", letterSpacing:"1.5px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}
+                <div style={{ marginBottom:"1.2rem" }}><label style={lbl}>Message</label><textarea style={{ ...inp, resize:"vertical", minHeight:"130px" }} placeholder="Tell us more about your move..." {...bind("msg")} /></div>
+                </div>
+                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", marginTop:"auto", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"14px", ...H, fontWeight:800, fontSize:"0.9rem", letterSpacing:"1.5px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}
                   onMouseEnter={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 6px 22px rgba(212,153,26,0.5)"; e.currentTarget.style.transform="translateY(-2px)"; }}}
                   onMouseLeave={e=>{ if(st!=="sending"){ e.currentTarget.style.boxShadow="0 4px 15px rgba(212,153,26,0.3)"; e.currentTarget.style.transform="translateY(0)"; }}}>
                   {st==="sending"?"Sending...":"Send My Request →"}
