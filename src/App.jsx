@@ -131,10 +131,10 @@ const Nav = ({ page, setPage }) => {
       {/* main nav */}
       <nav style={{ position:"sticky", top:0, zIndex:500, background:"white", boxShadow: sc?"0 2px 14px rgba(0,0,0,0.1)":"0 1px 0 var(--border)", padding:"0 2rem", height:"62px", display:"flex", alignItems:"center", justifyContent:"space-between", transition:"box-shadow 0.3s" }}>
         <div style={{ display:"flex", alignItems:"center", gap:"11px", cursor:"pointer" }} onClick={()=>go("Home")}>
-          <img src={LOGO} alt="Riya Cargo" style={{ width:"42px", height:"42px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
+          <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"42px", height:"42px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
           <div style={{ lineHeight:1.2 }}>
             <div style={{ ...H, fontWeight:800, fontSize:"1.05rem", color:"var(--black)", letterSpacing:"0.5px" }}>RIYA CARGO</div>
-            <div style={{ ...B, fontSize:"0.5rem", color:"var(--grey)", letterSpacing:"2px", textTransform:"uppercase" }}>Movers & Packers</div>
+            <div style={{ ...B, fontSize:"0.5rem", color:"var(--grey)", letterSpacing:"2px", textTransform:"uppercase" }}>Packers & Movers Pune</div>
           </div>
         </div>
         <div className="nl" style={{ display:"flex", alignItems:"center", gap:"2px" }}>
@@ -181,7 +181,7 @@ const Hero = ({ setPage }) => {
 
   return (
     <div style={{ position:"relative", overflow:"hidden" }}>
-      {/* Carousel bg — fixed height on desktop, auto on mobile */}
+      {/* Carousel bg */}
       <div style={{ position:"absolute", inset:0 }}>
         {slides.map((src,i)=>(
           <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
@@ -189,20 +189,22 @@ const Hero = ({ setPage }) => {
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.80) 0%, rgba(10,10,10,0.72) 50%, rgba(10,10,10,0.60) 100%)" }} />
       </div>
 
-      {/* Content — determines height */}
+      {/* Content */}
       <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", display:"flex", alignItems:"center", gap:"3rem", minHeight:"88vh" }}>
 
         {/* Left text */}
         <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
           <div style={{ display:"inline-flex", alignItems:"center", gap:"7px", background:"rgba(212,153,26,0.18)", border:"1px solid rgba(212,153,26,0.4)", padding:"3px 12px 3px 5px", borderRadius:"30px", marginBottom:"1.1rem", animation:"fadeUp 0.7s ease both" }}>
             <span style={{ background:"var(--acc)", color:"var(--black)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>ISO CERTIFIED</span>
-            <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>PUNE'S TRUSTED MOVERS</span>
+            <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>PUNE'S TRUSTED MOVERS & PACKERS</span>
           </div>
+          {/* KEYWORD 1 — H1 hero headline */}
           <h1 style={{ ...H, fontWeight:900, fontSize:"clamp(1.8rem,4.2vw,3.4rem)", lineHeight:1.1, color:"white", animation:"fadeUp 0.8s ease 0.1s both", marginBottom:"0.9rem", textShadow:"0 2px 10px rgba(0,0,0,0.4)" }}>
-            YOUR MOVE.<br /><span style={{ color:"var(--acc)" }}>OUR PROMISE.</span>
+            #1 PACKERS AND<br /><span style={{ color:"var(--acc)" }}>MOVERS IN PUNE</span>
           </h1>
-          <p style={{ ...B, fontSize:"0.92rem", color:"rgba(255,255,255,0.75)", maxWidth:"380px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.5rem" }}>
-            Professional packing, safe transport & stress-free relocation for homes and offices across India.
+          {/* KEYWORD 2 — hero sub-description */}
+          <p style={{ ...B, fontSize:"0.92rem", color:"rgba(255,255,255,0.75)", maxWidth:"420px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.5rem" }}>
+            Riya Cargo — trusted <strong style={{color:"rgba(255,255,255,0.9)"}}>Movers and Packers in Pune</strong> for household shifting, office relocation & car transport across India. Safe, insured & stress-free.
           </p>
           <div className="hero-stats" style={{ display:"flex", gap:"2rem", flexWrap:"wrap", animation:"fadeUp 0.8s ease 0.3s both" }}>
             {[["5000+","Moves Done"],["15+","Years Exp"],["100%","Safe Delivery"]].map(([n,l])=>(
@@ -230,12 +232,11 @@ const Hero = ({ setPage }) => {
             </div>
           ):(
             <div style={{ background:"white", borderRadius:"10px", overflow:"hidden", boxShadow:"0 12px 40px rgba(0,0,0,0.3)" }}>
-              {/* Dark header strip */}
               <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1rem 1.4rem", borderBottom:"3px solid var(--acc)" }}>
+                {/* KEYWORD 3 — form header */}
                 <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white", marginBottom:"0.15rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
-                <div style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.45)" }}>Reply within 2 hrs · No obligation · 100% Free</div>
+                <div style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.45)" }}>Best Packers and Movers Near Me · Reply within 2 hrs · Free</div>
               </div>
-              {/* Form fields */}
               <div style={{ padding:"1.4rem" }}>
               <div className="hero-form-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0.7rem" }}>
                 <div><label style={{...lbl, color:"var(--grey)"}}>Name *</label><input style={inp} placeholder="Full Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} /></div>
@@ -286,7 +287,7 @@ const Home = ({ setPage }) => {
       <div style={{ background:"var(--black)", padding:"0.65rem 0", overflow:"hidden" }}>
         <div style={{ display:"flex", gap:"3rem", animation:"ticker 22s linear infinite", whiteSpace:"nowrap" }}>
           {[...Array(2)].map((_,r)=>
-            ["Household Shifting","Car Transportation","Office Relocation","Packing & Unpacking","Warehouse Storage","Insurance Coverage"].map((s,i)=>(
+            ["Packers and Movers Pune","Car Transportation","Office Relocation","Movers and Packers Pune","Warehouse Storage","Insurance Coverage"].map((s,i)=>(
               <span key={`${r}-${i}`} style={{ display:"inline-flex", alignItems:"center", gap:"10px", ...H, fontWeight:700, fontSize:"0.72rem", letterSpacing:"2px", textTransform:"uppercase", color:"rgba(255,255,255,0.75)" }}>
                 <span style={{ width:"4px", height:"4px", background:"var(--acc)", borderRadius:"50%", display:"inline-block" }} />{s}
               </span>
@@ -300,8 +301,10 @@ const Home = ({ setPage }) => {
         <div className="g2" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"center" }}>
           <div>
             <Tag text="About Riya Cargo" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>PUNE'S MOST <span style={{ color:"var(--acc)" }}>TRUSTED</span> MOVERS</h2>
-            <p style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.94rem" }}>Riya Cargo Movers & Packers (Regd.) is ISO 9001-2015 certified, based in Pune with branches in Chennai & Ahmedabad. With 5000+ moves and zero damage guarantee, we are the name families trust.</p>
+            {/* KEYWORD 4 — About section heading */}
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>PUNE'S MOST <span style={{ color:"var(--acc)" }}>TRUSTED</span> PACKERS AND MOVERS</h2>
+            {/* KEYWORD 5 — About body paragraph */}
+            <p style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.94rem" }}>Riya Cargo is a leading name among <strong>Movers and Packers in Pune</strong> — ISO 9001-2015 certified, based in Pune with branches in Chennai & Ahmedabad. With 5000+ moves and a zero damage guarantee, we are the name families and businesses trust for safe relocation.</p>
             <ul style={{ listStyle:"none", marginBottom:"1.6rem" }}>
               {["Professionally trained packing team","Transit insurance on all shipments","GST registered, transparent pricing","Pan-India network & delivery"].map(f=>(
                 <li key={f} style={{ display:"flex", alignItems:"center", gap:"10px", padding:"6px 0", borderBottom:"1px solid var(--border)", ...B, fontSize:"0.9rem", color:"var(--dark)" }}>
@@ -312,9 +315,9 @@ const Home = ({ setPage }) => {
             <Btn onClick={()=>setPage("About")}>Learn More</Btn>
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gridTemplateRows:"185px 185px", gap:"10px" }}>
-            <img src={IMG_INDOOR} style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px", gridRow:"span 2" }} />
-            <img src={IMG_FURN} style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
-            <img src={IMG_BOXES} style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
+            <img src={IMG_INDOOR} alt="Packers and Movers Pune - Indoor Packing" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px", gridRow:"span 2" }} />
+            <img src={IMG_FURN} alt="Movers and Packers Pune - Furniture Wrapping" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
+            <img src={IMG_BOXES} alt="Professional Packing Services Pune" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
           </div>
         </div>
       </div>
@@ -324,7 +327,9 @@ const Home = ({ setPage }) => {
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="What We Offer" />
+            {/* KEYWORD 6 — Services section heading */}
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>OUR <span style={{ color:"var(--acc)" }}>SERVICES</span></h2>
+            <p style={{ ...B, color:"var(--grey)", fontSize:"0.88rem", marginTop:"0.5rem" }}>Complete moving solutions by the best <strong>Packers and Movers near you</strong> in Pune</p>
           </div>
           <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.2rem" }}>
             {svcs.map((s,i)=>(
@@ -390,9 +395,12 @@ const Home = ({ setPage }) => {
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>WHAT <span style={{ color:"var(--acc)" }}>CUSTOMERS</span> SAY</h2>
           </div>
           <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.3rem" }}>
-            {[{nm:"Rahul Kale",rt:"Pune to Mumbai",tx:"Every item packed with care, delivered without a scratch. Best movers in Pune!",st:5,in:"RK"},
-              {nm:"Sunita Patil",rt:"Office Shift, Pune",tx:"Shifted our entire office in a day! Punctual, organized, excellent team.",st:5,in:"SP"},
-              {nm:"Arun Menon",rt:"Pune to Chennai",tx:"Car transported in perfect condition. Insurance gave total peace of mind.",st:4,in:"AM"}].map((t,i)=>(
+            {[
+              /* KEYWORD 7 — woven into testimonial review text */
+              {nm:"Rahul Kale",rt:"Pune to Mumbai",tx:"Found them while searching for Packers and Movers near me — every item packed with care, delivered without a scratch. Best movers in Pune!",st:5,in:"RK"},
+              {nm:"Sunita Patil",rt:"Office Shift, Pune",tx:"Best Movers and Packers in Pune! Shifted our entire office in a day — punctual, organized, excellent team.",st:5,in:"SP"},
+              {nm:"Arun Menon",rt:"Pune to Chennai",tx:"Riya Cargo Packers and Movers handled my car with total care. Transported in perfect condition — insurance gave complete peace of mind.",st:4,in:"AM"}
+            ].map((t,i)=>(
               <div key={i} style={{ background:"var(--bgalt)", border:"1px solid var(--border)", borderTop:"3px solid var(--acc)", padding:"1.7rem", borderRadius:"6px", transition:"transform 0.3s" }}
                 onMouseEnter={e=>e.currentTarget.style.transform="translateY(-4px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>
                 <div style={{ color:"var(--acc)", fontSize:"0.9rem", marginBottom:"8px" }}>{"★".repeat(t.st)}{"☆".repeat(5-t.st)}</div>
@@ -410,7 +418,8 @@ const Home = ({ setPage }) => {
         </div>
       </div>
 
-      <CTA title="READY TO MOVE? LET'S MAKE IT STRESS-FREE!" sub="Call us for a free consultation — 7 days a week." btn="Get Free Quote" setPage={setPage} />
+      {/* KEYWORD 8 — CTA banner */}
+      <CTA title="LOOKING FOR PACKERS AND MOVERS NEAR YOU IN PUNE?" sub="Call Riya Cargo — the most trusted Movers and Packers in Pune. Free consultation, 7 days a week." btn="Get Free Quote" setPage={setPage} />
     </div>
   );
 };
@@ -418,21 +427,21 @@ const Home = ({ setPage }) => {
 /* ── ABOUT ── */
 const About = ({ setPage }) => (
   <div style={{ animation:"fadeIn 0.4s ease" }}>
-    <PH tag="Our Story" title="About Us" setPage={setPage} />
+    <PH tag="Our Story" title="About Riya Cargo — Packers and Movers Pune" setPage={setPage} />
     <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
       <div className="g2" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"1.2fr 0.8fr", gap:"4rem", alignItems:"start" }}>
         <div>
           <Tag text="Who We Are" />
-          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1.1rem" }}>TRUSTED MOVING EXPERTS<br />IN <span style={{ color:"var(--acc)" }}>PUNE</span></h2>
-          {["Riya Cargo Movers & Packers (Regd.) is one of Pune's most trusted relocation companies. With over a decade of experience, we've perfected seamless, safe, and efficient moving.",
+          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1.1rem" }}>TRUSTED PACKERS AND MOVERS<br />IN <span style={{ color:"var(--acc)" }}>PUNE</span></h2>
+          {["Riya Cargo Movers & Packers (Regd.) is one of Pune's most trusted relocation companies. As professional Packers and Movers in Pune, we've perfected seamless, safe, and efficient moving for over a decade.",
             "ISO 9001-2015 certified, ensuring the highest international quality standards. Our trained professionals handle every move with care — from studio apartments to full corporate shifts.",
             "Headquartered in Pune with offices in Chennai (Mr. Ajay Kaswan) and Ahmedabad (Mr. Sandeep Kaswan), giving us a strong Pan-India reach for long-distance relocations.",
             "All shipments backed with transit insurance — no hidden costs, clear quotes, and open communication throughout your move."
           ].map((p,i)=><p key={i} style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.94rem" }}>{p}</p>)}
         </div>
         <div style={{ position:"sticky", top:"80px" }}>
-          <img src={IMG_OFFICE} style={{ width:"100%", borderRadius:"6px", boxShadow:"var(--shadow-lg)", marginBottom:"12px" }} />
-          <img src={IMG_WH2} style={{ width:"100%", borderRadius:"6px", boxShadow:"var(--shadow-lg)" }} />
+          <img src={IMG_OFFICE} alt="Riya Cargo Movers and Packers Pune Office" style={{ width:"100%", borderRadius:"6px", boxShadow:"var(--shadow-lg)", marginBottom:"12px" }} />
+          <img src={IMG_WH2} alt="Packers and Movers Pune Warehouse" style={{ width:"100%", borderRadius:"6px", boxShadow:"var(--shadow-lg)" }} />
         </div>
       </div>
     </div>
@@ -448,7 +457,7 @@ const About = ({ setPage }) => (
             {i:"💬",t:"Honest Pricing",d:"No hidden costs, ever."},
             {i:"⚡",t:"On-Time Delivery",d:"We always commit to timelines."},
             {i:"🌐",t:"Pan-India Network",d:"Chennai, Ahmedabad & all India."},
-            {i:"🤝",t:"5000+ Happy Clients",d:"Trust built over a decade."}].map((v,i)=>(
+            {i:"🤝",t:"5000+ Happy Clients",d:"Trust built over a decade of moving families across Pune."}].map((v,i)=>(
             <div key={i} style={{ background:"white", border:"1px solid var(--border)", borderTop:"3px solid var(--acc)", padding:"1.7rem", borderRadius:"6px", textAlign:"center", transition:"all 0.3s" }}
               onMouseEnter={e=>{ e.currentTarget.style.boxShadow="var(--shadow-lg)"; e.currentTarget.style.transform="translateY(-4px)"; }}
               onMouseLeave={e=>{ e.currentTarget.style.boxShadow="none"; e.currentTarget.style.transform="translateY(0)"; }}>
@@ -486,14 +495,14 @@ const About = ({ setPage }) => (
         </div>
       </div>
     </div>
-    <CTA title="EXPERIENCED. TRUSTED. RELIABLE." sub="Join thousands of happy customers who trusted Riya Cargo." btn="Get a Free Quote" setPage={setPage} />
+    <CTA title="EXPERIENCED. TRUSTED. RELIABLE." sub="Join thousands of happy customers who chose Riya Cargo — Packers and Movers in Pune." btn="Get a Free Quote" setPage={setPage} />
   </div>
 );
 
 /* ── SERVICES ── */
 const Services = ({ setPage }) => {
   const sv=[
-    {i:"🏠",t:"Household Shifting",img:IMG_INDOOR,d:"Complete home relocation with professional packing, transport and unpacking.",tg:["Local Shifting","Inter-city","Unpacking","Furniture Assembly"]},
+    {i:"🏠",t:"Household Shifting",img:IMG_INDOOR,d:"Complete home relocation with professional packing, transport and unpacking. As top-rated Movers and Packers in Pune, we handle every item with care.",tg:["Local Shifting","Inter-city","Unpacking","Furniture Assembly"]},
     {i:"📦",t:"Packing & Unpacking",img:IMG_FURN,d:"Expert packing using high-quality corrugated boxes, stretch wrap, and foam sheets.",tg:["Bubble Wrap","Foam Packing","Labeling","Fragile Handling"]},
     {i:"🚗",t:"Car Transportation",img:IMG_TRUCK,d:"Enclosed and open carrier transport. Door-to-door delivery across India with insurance.",tg:["Two-Wheelers","Four-Wheelers","Luxury Cars","Pan-India"]},
     {i:"🏢",t:"Office Shifting",img:IMG_WORKERS,d:"Minimal-downtime office relocation with IT equipment handled with anti-static materials.",tg:["IT Equipment","Server Rooms","After-Hours","Full Setup"]},
@@ -501,12 +510,13 @@ const Services = ({ setPage }) => {
   ];
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
-      <PH tag="Full-Service Moving" title="Our Services" setPage={setPage} />
+      <PH tag="Full-Service Moving" title="Packers and Movers Services in Pune" setPage={setPage} />
       <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Comprehensive Solutions" />
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>EVERYTHING YOU <span style={{ color:"var(--acc)" }}>NEED</span></h2>
+            <p style={{ ...B, color:"var(--grey)", fontSize:"0.88rem", marginTop:"0.5rem" }}>Trusted <strong>Packers and Movers near you</strong> — serving all areas of Pune</p>
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:"1.4rem" }}>
             {sv.map((s,i)=>(
@@ -514,18 +524,18 @@ const Services = ({ setPage }) => {
                 onMouseEnter={e=>{ e.currentTarget.style.borderColor="var(--acc)"; e.currentTarget.style.boxShadow="var(--shadow)"; }}
                 onMouseLeave={e=>{ e.currentTarget.style.borderColor="var(--border)"; e.currentTarget.style.boxShadow="none"; }}>
                 {i%2===0?(
-                  <><div style={{ overflow:"hidden", borderRadius:"6px" }}><img src={s.img} style={{ width:"100%", height:"230px", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.04)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} /></div>
+                  <><div style={{ overflow:"hidden", borderRadius:"6px" }}><img src={s.img} alt={`${s.t} - Packers and Movers Pune`} style={{ width:"100%", height:"230px", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.04)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} /></div>
                     <div><h3 style={{ ...H, fontWeight:800, fontSize:"1.35rem", color:"var(--black)", marginBottom:"0.7rem" }}>{s.i} {s.t}</h3><p style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.92rem" }}>{s.d}</p><div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>{s.tg.map(t=><span key={t} style={{ background:"var(--accl)", color:"var(--accd)", padding:"3px 10px", borderRadius:"20px", fontSize:"0.72rem", ...H, fontWeight:700, border:"1px solid rgba(212,153,26,0.25)" }}>{t}</span>)}</div></div></>
                 ):(
                   <><div><h3 style={{ ...H, fontWeight:800, fontSize:"1.35rem", color:"var(--black)", marginBottom:"0.7rem" }}>{s.i} {s.t}</h3><p style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.92rem" }}>{s.d}</p><div style={{ display:"flex", flexWrap:"wrap", gap:"6px" }}>{s.tg.map(t=><span key={t} style={{ background:"var(--accl)", color:"var(--accd)", padding:"3px 10px", borderRadius:"20px", fontSize:"0.72rem", ...H, fontWeight:700, border:"1px solid rgba(212,153,26,0.25)" }}>{t}</span>)}</div></div>
-                    <div style={{ overflow:"hidden", borderRadius:"6px" }}><img src={s.img} style={{ width:"100%", height:"230px", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.04)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} /></div></>
+                    <div style={{ overflow:"hidden", borderRadius:"6px" }}><img src={s.img} alt={`${s.t} - Movers and Packers Pune`} style={{ width:"100%", height:"230px", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.04)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} /></div></>
                 )}
               </div>
             ))}
           </div>
         </div>
       </div>
-      <CTA title="NOT SURE WHICH SERVICE YOU NEED?" sub="Our team will guide you to the right solution." btn="Talk to an Expert" setPage={setPage} />
+      <CTA title="NOT SURE WHICH SERVICE YOU NEED?" sub="Our team of expert Movers and Packers in Pune will guide you to the right solution." btn="Talk to an Expert" setPage={setPage} />
     </div>
   );
 };
@@ -544,7 +554,7 @@ const Gallery = ({ setPage }) => {
   ];
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
-      <PH tag="Our Work in Pictures" title="Gallery" setPage={setPage} />
+      <PH tag="Our Work in Pictures" title="Gallery — Riya Cargo Movers and Packers Pune" setPage={setPage} />
       <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
@@ -554,7 +564,7 @@ const Gallery = ({ setPage }) => {
           <div className="gal" style={{ columns:"3", columnGap:"12px" }}>
             {items.map((item,i)=>(
               <div key={i} style={{ breakInside:"avoid", marginBottom:"12px", borderRadius:"6px", overflow:"hidden", position:"relative", cursor:"pointer" }} onMouseEnter={()=>setHv(i)} onMouseLeave={()=>setHv(null)}>
-                <img src={item.s} style={{ width:"100%", display:"block", transition:"transform 0.5s", transform:hv===i?"scale(1.05)":"scale(1)" }} />
+                <img src={item.s} alt={`${item.c} - Packers and Movers Pune`} style={{ width:"100%", display:"block", transition:"transform 0.5s", transform:hv===i?"scale(1.05)":"scale(1)" }} />
                 <div style={{ position:"absolute", inset:0, background:hv===i?"rgba(212,153,26,0.5)":"rgba(0,0,0,0)", transition:"background 0.4s", display:"flex", alignItems:"flex-end", padding:"1rem" }}>
                   <span style={{ color:"white", fontSize:"0.78rem", ...H, fontWeight:700, opacity:hv===i?1:0, transform:hv===i?"translateY(0)":"translateY(10px)", transition:"all 0.3s" }}>{item.c}</span>
                 </div>
@@ -586,13 +596,13 @@ const Contact = ({ setPage }) => {
   const bind=(k)=>({value:form[k],onChange:e=>setForm({...form,[k]:e.target.value})});
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
-      <PH tag="Reach Out" title="Contact Us" setPage={setPage} />
+      <PH tag="Reach Out" title="Contact Riya Cargo — Packers and Movers Pune" setPage={setPage} />
       <div className="sec" style={{ background:"var(--bg)", padding:"5rem 2rem" }}>
         <div className="cgrid" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"0.85fr 1.15fr", gap:"3.5rem", alignItems:"stretch" }}>
           <div>
             <Tag text="Get in Touch" />
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>WE'RE HERE TO <span style={{ color:"var(--acc)" }}>HELP YOU MOVE</span></h2>
-            <p style={{ ...B, color:"var(--grey)", marginBottom:"2rem", lineHeight:1.8, fontSize:"0.93rem" }}>Reach out for a free survey, quote, or any questions. Our team responds quickly!</p>
+            <p style={{ ...B, color:"var(--grey)", marginBottom:"2rem", lineHeight:1.8, fontSize:"0.93rem" }}>Looking for <strong>Movers and Packers near you in Pune</strong>? Reach out for a free survey, quote, or any questions. Our team responds quickly!</p>
             {[{ic:"📍",t:"Head Office",c:"Khanna Building, Office No.2, Plot No.44,\nSec No.23, Transport Nagar,\nNigdi, Pune - 411044"},
               {ic:"📞",t:"Phone / WhatsApp",c:"+91 91461 71008\n+91 99620 71008 (Chennai)\n+91 99629 71008 (Ahmedabad)"},
               {ic:"📧",t:"Email",c:"info.riyacargopune@gmail.com\ninfo.rcmpindia@gmail.com"},
@@ -606,10 +616,9 @@ const Contact = ({ setPage }) => {
             ))}
           </div>
           <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"2px solid var(--acc)", display:"flex", flexDirection:"column" }}>
-            {/* Form header */}
             <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
               <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
-              <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>Reply within 2 hours · No obligation · 100% Free</div>
+              <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>#1 Packers and Movers Pune · Reply within 2 hours · No obligation · 100% Free</div>
             </div>
             <div style={{ padding:"1.8rem 2rem", flex:1, display:"flex", flexDirection:"column" }}>
             {st==="success"?(
@@ -666,13 +675,14 @@ const Footer = ({ setPage }) => (
       <div className="fgrid" style={{ display:"grid", gridTemplateColumns:"1.5fr 1fr 1fr 1fr", gap:"2.5rem", paddingBottom:"2.5rem", borderBottom:"1px solid rgba(255,255,255,0.08)", marginBottom:"1.5rem" }}>
         <div>
           <div style={{ display:"flex", alignItems:"center", gap:"11px", marginBottom:"1rem" }}>
-            <img src={LOGO} style={{ width:"44px", height:"44px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
+            <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"44px", height:"44px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
             <div>
               <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white" }}>RIYA CARGO</div>
               <div style={{ ...B, fontSize:"0.48rem", color:"rgba(255,255,255,0.35)", letterSpacing:"2px" }}>MOVERS & PACKERS (REGD.)</div>
             </div>
           </div>
-          <p style={{ ...B, color:"rgba(255,255,255,0.45)", fontSize:"0.82rem", lineHeight:1.75 }}>ISO 9001-2015 certified company providing prompt & secured relocation services across India.</p>
+          {/* KEYWORD — Footer description */}
+          <p style={{ ...B, color:"rgba(255,255,255,0.45)", fontSize:"0.82rem", lineHeight:1.75 }}>ISO 9001-2015 certified <strong style={{color:"rgba(255,255,255,0.3)"}}>Packers and Movers in Pune</strong> providing prompt & secured relocation services across India. The most trusted <strong style={{color:"rgba(255,255,255,0.3)"}}>Movers and Packers near you</strong> in Pune.</p>
           <div style={{ marginTop:"0.7rem", ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.2)" }}>GST: 33BTFPA7894F1ZN</div>
         </div>
         {[{title:"Quick Links",items:[["Home","Home"],["About","About"],["Services","Services"],["Gallery","Gallery"],["Contact","Contact"]]},
@@ -699,7 +709,7 @@ const Footer = ({ setPage }) => (
         </div>
       </div>
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:"0.72rem", color:"rgba(255,255,255,0.2)", ...B }}>
-        <span>© 2026 Riya Cargo Movers & Packers (Regd.). All rights reserved.</span>
+        <span>© 2026 Riya Cargo Movers & Packers (Regd.) — Packers and Movers Pune. All rights reserved.</span>
         <span>Made with ❤️ by Adswirll</span>
       </div>
     </div>
