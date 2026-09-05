@@ -669,48 +669,70 @@ const Contact = ({ setPage }) => {
 };
 
 /* ── FOOTER ── */
+const FootLink = ({ label, pg, setPage }) => {
+  const [hov, setHov] = useState(false);
+  return (
+    <li style={{ marginBottom:"10px" }}>
+      <span style={{ ...B, color: hov ? "var(--acc)" : "rgba(255,255,255,0.72)", fontSize:"0.85rem", cursor:pg?"pointer":"default", transition:"color 0.2s, transform 0.2s", display:"inline-flex", alignItems:"center", gap:"6px", transform: hov ? "translateX(3px)" : "translateX(0)" }}
+        onClick={()=>pg&&setPage(pg)} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
+        <span style={{ color:"var(--acc)", fontSize:"0.7rem" }}>›</span>{label}
+      </span>
+    </li>
+  );
+};
+
+const FootContact = ({ icon, label, value, href }) => (
+  <div style={{ display:"flex", alignItems:"flex-start", gap:"11px", marginBottom:"14px" }}>
+    <div style={{ width:"32px", height:"32px", borderRadius:"8px", background:"rgba(212,153,26,0.14)", border:"1px solid rgba(212,153,26,0.3)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"0.85rem", flexShrink:0 }}>{icon}</div>
+    <div style={{ paddingTop:"2px" }}>
+      <div style={{ ...H, fontWeight:700, color:"rgba(255,255,255,0.5)", fontSize:"0.62rem", letterSpacing:"0.6px", textTransform:"uppercase", marginBottom:"2px" }}>{label}</div>
+      {href ? (
+        <a href={href} style={{ ...B, color:"rgba(255,255,255,0.88)", fontSize:"0.86rem", textDecoration:"none", transition:"color 0.2s" }}
+          onMouseEnter={e=>e.currentTarget.style.color="var(--acc)"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,0.88)"}>{value}</a>
+      ) : (
+        <div style={{ ...B, color:"rgba(255,255,255,0.88)", fontSize:"0.86rem" }}>{value}</div>
+      )}
+    </div>
+  </div>
+);
+
 const Footer = ({ setPage }) => (
-  <footer style={{ background:"var(--black)", borderTop:"3px solid var(--acc)", padding:"3.5rem 2rem 1.5rem" }}>
+  <footer style={{ background:"var(--black)", borderTop:"3px solid var(--acc)", padding:"4rem 2rem 1.5rem" }}>
     <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
-      <div className="fgrid" style={{ display:"grid", gridTemplateColumns:"1.5fr 1fr 1fr 1fr", gap:"2.5rem", paddingBottom:"2.5rem", borderBottom:"1px solid rgba(255,255,255,0.08)", marginBottom:"1.5rem" }}>
+      <div className="fgrid" style={{ display:"grid", gridTemplateColumns:"1.4fr 0.8fr 0.9fr 1.1fr", gap:"3rem", paddingBottom:"2.8rem", borderBottom:"1px solid rgba(255,255,255,0.1)", marginBottom:"1.8rem" }}>
         <div>
-          <div style={{ display:"flex", alignItems:"center", gap:"11px", marginBottom:"1rem" }}>
-            <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"44px", height:"44px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
+          <div style={{ display:"flex", alignItems:"center", gap:"11px", marginBottom:"1.1rem" }}>
+            <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"46px", height:"46px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
             <div>
-              <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white" }}>Riya Cargo</div>
-              <div style={{ ...B, fontSize:"0.48rem", color:"rgba(255,255,255,0.35)", letterSpacing:"2px", textTransform:"uppercase" }}>Movers & Packers (Regd.)</div>
+              <div style={{ ...H, fontWeight:800, fontSize:"1.1rem", color:"white" }}>Riya Cargo</div>
+              <div style={{ ...B, fontSize:"0.5rem", color:"rgba(255,255,255,0.55)", letterSpacing:"2px", textTransform:"uppercase" }}>Movers & Packers (Regd.)</div>
             </div>
           </div>
           {/* KEYWORD — Footer description */}
-          <p style={{ ...B, color:"rgba(255,255,255,0.45)", fontSize:"0.82rem", lineHeight:1.75 }}>ISO 9001-2015 certified <strong style={{color:"rgba(255,255,255,0.3)"}}>Packers and Movers in Pune</strong> providing prompt & secured relocation services across India. The most trusted <strong style={{color:"rgba(255,255,255,0.3)"}}>Movers and Packers near you</strong> in Pune.</p>
-          <div style={{ marginTop:"0.7rem", ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.5)" }}>GST: 33BTFPA7894F1ZN</div>
+          <p style={{ ...B, color:"rgba(255,255,255,0.68)", fontSize:"0.85rem", lineHeight:1.85, marginBottom:"1rem" }}>ISO 9001-2015 certified <strong style={{color:"rgba(255,255,255,0.9)"}}>Packers and Movers in Pune</strong> providing prompt & secured relocation services across India. The most trusted <strong style={{color:"rgba(255,255,255,0.9)"}}>Movers and Packers near you</strong> in Pune.</p>
+          <div style={{ display:"inline-block", ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.6)", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", padding:"5px 12px", borderRadius:"5px" }}>GST: 33BTFPA7894F1ZN</div>
         </div>
         {[{title:"Quick Links",items:[["Home","Home"],["About","About"],["Services","Services"],["Gallery","Gallery"],["Contact","Contact"]]},
           {title:"Services",items:[["Household Shifting",null],["Office Relocation",null],["Car Transport",null],["Packing & Unpacking",null],["Warehousing",null]]}].map((col,i)=>(
           <div key={i}>
-            <h4 style={{ ...H, fontWeight:700, color:"white", fontSize:"0.76rem", letterSpacing:"1px", textTransform:"uppercase", marginBottom:"1rem", paddingBottom:"6px", borderBottom:"2px solid var(--acc)", display:"inline-block" }}>{col.title}</h4>
+            <h4 style={{ ...H, fontWeight:700, color:"white", fontSize:"0.8rem", letterSpacing:"1px", textTransform:"uppercase", marginBottom:"1.2rem", paddingBottom:"8px", borderBottom:"2px solid var(--acc)", display:"inline-block" }}>{col.title}</h4>
             <ul style={{ listStyle:"none" }}>
               {col.items.map(([label,pg])=>(
-                <li key={label} style={{ marginBottom:"6px" }}>
-                  <span style={{ ...B, color:"rgba(255,255,255,0.45)", fontSize:"0.82rem", cursor:pg?"pointer":"default", transition:"color 0.2s" }}
-                    onClick={()=>pg&&setPage(pg)} onMouseEnter={e=>{ if(pg) e.target.style.color="var(--acc)"; }} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.45)"}>→ {label}</span>
-                </li>
+                <FootLink key={label} label={label} pg={pg} setPage={setPage} />
               ))}
             </ul>
           </div>
         ))}
         <div>
-          <h4 style={{ ...H, fontWeight:700, color:"white", fontSize:"0.76rem", letterSpacing:"1px", textTransform:"uppercase", marginBottom:"1rem", paddingBottom:"6px", borderBottom:"2px solid var(--acc)", display:"inline-block" }}>Contact</h4>
-          <div style={{ ...B, fontSize:"0.79rem", color:"rgba(255,255,255,0.45)", lineHeight:2 }}>
-            <div>📍 Nigdi, Pune 411044</div>
-            <div>📞 <a href="tel:9146171008" style={{ color:"rgba(255,255,255,0.45)", textDecoration:"none" }}>91461 71008</a></div>
-            <div>📧 <a href="mailto:info.riyacargopune@gmail.com" style={{ color:"rgba(255,255,255,0.45)", textDecoration:"none", fontSize:"0.72rem" }}>info.riyacargopune@gmail.com</a></div>
-          </div>
+          <h4 style={{ ...H, fontWeight:700, color:"white", fontSize:"0.8rem", letterSpacing:"1px", textTransform:"uppercase", marginBottom:"1.2rem", paddingBottom:"8px", borderBottom:"2px solid var(--acc)", display:"inline-block" }}>Contact</h4>
+          <FootContact icon="📍" label="Address" value="Nigdi, Pune 411044" />
+          <FootContact icon="📞" label="Phone" value="91461 71008" href="tel:9146171008" />
+          <FootContact icon="📧" label="Email" value="info.riyacargopune@gmail.com" href="mailto:info.riyacargopune@gmail.com" />
         </div>
       </div>
-      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:"0.72rem", color:"rgba(255,255,255,0.5)", ...B }}>
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:"8px", fontSize:"0.76rem", color:"rgba(255,255,255,0.6)", ...B }}>
         <span>© 2026 Riya Cargo Movers & Packers (Regd.) — Packers and Movers Pune. All rights reserved.</span>
-        <span>Made with ❤️ by Clicksnads</span>
+        <span>Made with ❤️ by Adswirll</span>
       </div>
     </div>
   </footer>
