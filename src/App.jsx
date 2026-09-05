@@ -683,7 +683,7 @@ const Footer = ({ setPage }) => (
           </div>
           {/* KEYWORD — Footer description */}
           <p style={{ ...B, color:"rgba(255,255,255,0.45)", fontSize:"0.82rem", lineHeight:1.75 }}>ISO 9001-2015 certified <strong style={{color:"rgba(255,255,255,0.3)"}}>Packers and Movers in Pune</strong> providing prompt & secured relocation services across India. The most trusted <strong style={{color:"rgba(255,255,255,0.3)"}}>Movers and Packers near you</strong> in Pune.</p>
-          <div style={{ marginTop:"0.7rem", ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.2)" }}>GST: 33BTFPA7894F1ZN</div>
+          <div style={{ marginTop:"0.7rem", ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.5)" }}>GST: 33BTFPA7894F1ZN</div>
         </div>
         {[{title:"Quick Links",items:[["Home","Home"],["About","About"],["Services","Services"],["Gallery","Gallery"],["Contact","Contact"]]},
           {title:"Services",items:[["Household Shifting",null],["Office Relocation",null],["Car Transport",null],["Packing & Unpacking",null],["Warehousing",null]]}].map((col,i)=>(
@@ -708,7 +708,7 @@ const Footer = ({ setPage }) => (
           </div>
         </div>
       </div>
-      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:"0.72rem", color:"rgba(255,255,255,0.2)", ...B }}>
+      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", fontSize:"0.72rem", color:"rgba(255,255,255,0.5)", ...B }}>
         <span>© 2026 Riya Cargo Movers & Packers (Regd.) — Packers and Movers Pune. All rights reserved.</span>
         <span>Made with ❤️ by Clicksnads</span>
       </div>
@@ -734,7 +734,9 @@ export default function App() {
       <Footer setPage={go} />
       <a href="https://wa.me/919146171008" target="_blank" rel="noreferrer"
         style={{ position:"fixed", bottom:"28px", right:"28px", zIndex:999, width:"52px", height:"52px", borderRadius:"50%", background:"#25D366", color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontSize:"1.4rem", textDecoration:"none", animation:"pulse 2.5s infinite", boxShadow:"0 4px 18px rgba(37,211,102,0.5)", transition:"transform 0.3s" }}
-        onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>💬</a>
+        onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="white"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.348.652 4.542 1.783 6.415L3 29l7.27-2.246A12.44 12.44 0 0 0 16.001 28C22.905 28 28.5 22.404 28.5 15.5S22.905 3 16.001 3Zm0 22.7a10.16 10.16 0 0 1-5.176-1.42l-.371-.22-3.847 1.19 1.226-3.75-.242-.385a10.15 10.15 0 0 1-1.591-5.415c0-5.632 4.583-10.2 10.2-10.2 5.632 0 10.2 4.568 10.2 10.2 0 5.633-4.568 10.2-10.399 10.2Zm5.596-7.64c-.307-.153-1.815-.896-2.096-.998-.281-.102-.486-.153-.69.153-.204.307-.792.998-.972 1.203-.179.204-.358.23-.665.077-.307-.153-1.296-.478-2.469-1.523-.912-.813-1.529-1.817-1.708-2.124-.179-.307-.019-.473.134-.626.138-.137.307-.358.46-.537.153-.179.204-.307.307-.512.102-.204.051-.384-.026-.537-.077-.153-.69-1.663-.945-2.278-.249-.598-.502-.517-.69-.527l-.588-.01c-.204 0-.537.077-.818.384-.281.307-1.073 1.049-1.073 2.56s1.098 2.97 1.251 3.174c.153.204 2.163 3.303 5.242 4.632.733.316 1.304.505 1.75.646.735.234 1.404.201 1.933.122.59-.088 1.815-.742 2.071-1.459.256-.716.256-1.33.179-1.459-.077-.128-.281-.204-.588-.358Z"/></svg>
+      </a>
     </>
   );
 }
