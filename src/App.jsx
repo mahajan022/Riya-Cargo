@@ -133,7 +133,7 @@ const Nav = ({ page, setPage }) => {
         <div style={{ display:"flex", alignItems:"center", gap:"11px", cursor:"pointer" }} onClick={()=>go("Home")}>
           <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"42px", height:"42px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
           <div style={{ lineHeight:1.2 }}>
-            <div style={{ ...H, fontWeight:800, fontSize:"1.05rem", color:"var(--black)", letterSpacing:"0.5px" }}>RIYA CARGO</div>
+            <div style={{ ...H, fontWeight:800, fontSize:"1.05rem", color:"var(--black)", letterSpacing:"0.5px" }}>Riya Cargo</div>
             <div style={{ ...B, fontSize:"0.5rem", color:"var(--grey)", letterSpacing:"2px", textTransform:"uppercase" }}>Packers & Movers Pune</div>
           </div>
         </div>
@@ -195,12 +195,12 @@ const Hero = ({ setPage }) => {
         {/* Left text */}
         <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
           <div style={{ display:"inline-flex", alignItems:"center", gap:"7px", background:"rgba(212,153,26,0.18)", border:"1px solid rgba(212,153,26,0.4)", padding:"3px 12px 3px 5px", borderRadius:"30px", marginBottom:"1.1rem", animation:"fadeUp 0.7s ease both" }}>
-            <span style={{ background:"var(--acc)", color:"var(--black)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>ISO CERTIFIED</span>
-            <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>PUNE'S TRUSTED MOVERS & PACKERS</span>
+            <span style={{ background:"var(--acc)", color:"var(--black)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>ISO Certified</span>
+            <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>Pune's Trusted Movers & Packers</span>
           </div>
           {/* KEYWORD 1 — H1 hero headline */}
           <h1 style={{ ...H, fontWeight:900, fontSize:"clamp(1.8rem,4.2vw,3.4rem)", lineHeight:1.1, color:"white", animation:"fadeUp 0.8s ease 0.1s both", marginBottom:"0.9rem", textShadow:"0 2px 10px rgba(0,0,0,0.4)" }}>
-            #1 PACKERS AND<br /><span style={{ color:"var(--acc)" }}>MOVERS IN PUNE</span>
+            #1 Packers and<br /><span style={{ color:"var(--acc)" }}>Movers in Pune</span>
           </h1>
           {/* KEYWORD 2 — hero sub-description */}
           <p style={{ ...B, fontSize:"0.92rem", color:"rgba(255,255,255,0.75)", maxWidth:"420px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.5rem" }}>
@@ -234,7 +234,7 @@ const Hero = ({ setPage }) => {
             <div style={{ background:"white", borderRadius:"10px", overflow:"hidden", boxShadow:"0 12px 40px rgba(0,0,0,0.3)" }}>
               <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1rem 1.4rem", borderBottom:"3px solid var(--acc)" }}>
                 {/* KEYWORD 3 — form header */}
-                <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white", marginBottom:"0.15rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
+                <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white", marginBottom:"0.15rem" }}>Get a <span style={{ color:"var(--acc)" }}>Free Quote</span></div>
                 <div style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.45)" }}>Best Packers and Movers Near Me · Reply within 2 hrs · Free</div>
               </div>
               <div style={{ padding:"1.4rem" }}>
@@ -302,7 +302,7 @@ const Home = ({ setPage }) => {
           <div>
             <Tag text="About Riya Cargo" />
             {/* KEYWORD 4 — About section heading */}
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>PUNE'S MOST <span style={{ color:"var(--acc)" }}>TRUSTED</span> PACKERS AND MOVERS</h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>Pune's Most <span style={{ color:"var(--acc)" }}>Trusted</span> Packers and Movers</h2>
             {/* KEYWORD 5 — About body paragraph */}
             <p style={{ ...B, color:"var(--grey)", lineHeight:1.85, marginBottom:"1rem", fontSize:"0.94rem" }}>Riya Cargo is a leading name among <strong>Movers and Packers in Pune</strong> — ISO 9001-2015 certified, based in Pune with branches in Chennai & Ahmedabad. With 5000+ moves and a zero damage guarantee, we are the name families and businesses trust for safe relocation.</p>
             <ul style={{ listStyle:"none", marginBottom:"1.6rem" }}>
@@ -328,7 +328,7 @@ const Home = ({ setPage }) => {
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="What We Offer" />
             {/* KEYWORD 6 — Services section heading */}
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>OUR <span style={{ color:"var(--acc)" }}>SERVICES</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>Our <span style={{ color:"var(--acc)" }}>Services</span></h2>
             <p style={{ ...B, color:"var(--grey)", fontSize:"0.88rem", marginTop:"0.5rem" }}>Complete moving solutions by the best <strong>Packers and Movers near you</strong> in Pune</p>
           </div>
           <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.2rem" }}>
@@ -351,7 +351,7 @@ const Home = ({ setPage }) => {
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="How It Works" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>4-STEP <span style={{ color:"var(--acc)" }}>PROCESS</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>4-Step <span style={{ color:"var(--acc)" }}>Process</span></h2>
           </div>
           <div className="g4" style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:"0", position:"relative" }}>
             <div style={{ position:"absolute", top:"28px", left:"12%", right:"12%", height:"2px", background:"linear-gradient(90deg,var(--acc),var(--black))", zIndex:0 }} />
@@ -374,7 +374,7 @@ const Home = ({ setPage }) => {
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2rem" }}>
             <Tag text="Our Work" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>SEE WHAT WE <span style={{ color:"var(--acc)" }}>DO BEST</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>See What We <span style={{ color:"var(--acc)" }}>Do Best</span></h2>
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", gridTemplateRows:"190px 190px", gap:"10px" }}>
             {[IMG_WORKERS,IMG_FURN,IMG_BOXES,IMG_WH1,IMG_TRUCK].map((src,i)=>(
@@ -392,7 +392,7 @@ const Home = ({ setPage }) => {
         <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Client Reviews" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>WHAT <span style={{ color:"var(--acc)" }}>CUSTOMERS</span> SAY</h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>What <span style={{ color:"var(--acc)" }}>Customers</span> Say</h2>
           </div>
           <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.3rem" }}>
             {[
@@ -419,7 +419,7 @@ const Home = ({ setPage }) => {
       </div>
 
       {/* KEYWORD 8 — CTA banner */}
-      <CTA title="LOOKING FOR PACKERS AND MOVERS NEAR YOU IN PUNE?" sub="Call Riya Cargo — the most trusted Movers and Packers in Pune. Free consultation, 7 days a week." btn="Get Free Quote" setPage={setPage} />
+      <CTA title="Looking for Packers and Movers Near You in Pune?" sub="Call Riya Cargo — the most trusted Movers and Packers in Pune. Free consultation, 7 days a week." btn="Get Free Quote" setPage={setPage} />
     </div>
   );
 };
@@ -432,7 +432,7 @@ const About = ({ setPage }) => (
       <div className="g2" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"1.2fr 0.8fr", gap:"4rem", alignItems:"start" }}>
         <div>
           <Tag text="Who We Are" />
-          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1.1rem" }}>TRUSTED PACKERS AND MOVERS<br />IN <span style={{ color:"var(--acc)" }}>PUNE</span></h2>
+          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1.1rem" }}>Trusted Packers and Movers<br />in <span style={{ color:"var(--acc)" }}>Pune</span></h2>
           {["Riya Cargo Movers & Packers (Regd.) is one of Pune's most trusted relocation companies. As professional Packers and Movers in Pune, we've perfected seamless, safe, and efficient moving for over a decade.",
             "ISO 9001-2015 certified, ensuring the highest international quality standards. Our trained professionals handle every move with care — from studio apartments to full corporate shifts.",
             "Headquartered in Pune with offices in Chennai (Mr. Ajay Kaswan) and Ahmedabad (Mr. Sandeep Kaswan), giving us a strong Pan-India reach for long-distance relocations.",
@@ -449,7 +449,7 @@ const About = ({ setPage }) => (
       <div style={{ maxWidth:"1100px", margin:"0 auto" }}>
         <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
           <Tag text="Our Values" />
-          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>WHY CHOOSE <span style={{ color:"var(--acc)" }}>US</span></h2>
+          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>Why Choose <span style={{ color:"var(--acc)" }}>Us</span></h2>
         </div>
         <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.3rem" }}>
           {[{i:"🏆",t:"ISO 9001-2015",d:"Internationally certified quality management."},
@@ -473,7 +473,7 @@ const About = ({ setPage }) => (
       <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
         <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
           <Tag text="Leadership" />
-          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>MEET THE <span style={{ color:"var(--acc)" }}>TEAM</span></h2>
+          <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>Meet the <span style={{ color:"var(--acc)" }}>Team</span></h2>
         </div>
         <div className="g3" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.3rem" }}>
           {[{in:"RC",nm:"Riya Cargo Pune",rl:"Head Office",ph:"91461 71008",ci:"Pune, Maharashtra"},
@@ -495,7 +495,7 @@ const About = ({ setPage }) => (
         </div>
       </div>
     </div>
-    <CTA title="EXPERIENCED. TRUSTED. RELIABLE." sub="Join thousands of happy customers who chose Riya Cargo — Packers and Movers in Pune." btn="Get a Free Quote" setPage={setPage} />
+    <CTA title="Experienced. Trusted. Reliable." sub="Join thousands of happy customers who chose Riya Cargo — Packers and Movers in Pune." btn="Get a Free Quote" setPage={setPage} />
   </div>
 );
 
@@ -515,7 +515,7 @@ const Services = ({ setPage }) => {
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Comprehensive Solutions" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>EVERYTHING YOU <span style={{ color:"var(--acc)" }}>NEED</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>Everything You <span style={{ color:"var(--acc)" }}>Need</span></h2>
             <p style={{ ...B, color:"var(--grey)", fontSize:"0.88rem", marginTop:"0.5rem" }}>Trusted <strong>Packers and Movers near you</strong> — serving all areas of Pune</p>
           </div>
           <div style={{ display:"flex", flexDirection:"column", gap:"1.4rem" }}>
@@ -535,7 +535,7 @@ const Services = ({ setPage }) => {
           </div>
         </div>
       </div>
-      <CTA title="NOT SURE WHICH SERVICE YOU NEED?" sub="Our team of expert Movers and Packers in Pune will guide you to the right solution." btn="Talk to an Expert" setPage={setPage} />
+      <CTA title="Not Sure Which Service You Need?" sub="Our team of expert Movers and Packers in Pune will guide you to the right solution." btn="Talk to an Expert" setPage={setPage} />
     </div>
   );
 };
@@ -559,7 +559,7 @@ const Gallery = ({ setPage }) => {
         <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:"2.2rem" }}>
             <Tag text="Real Moves" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>OUR WORK <span style={{ color:"var(--acc)" }}>SPEAKS</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>Our Work <span style={{ color:"var(--acc)" }}>Speaks</span></h2>
           </div>
           <div className="gal" style={{ columns:"3", columnGap:"12px" }}>
             {items.map((item,i)=>(
@@ -601,7 +601,7 @@ const Contact = ({ setPage }) => {
         <div className="cgrid" style={{ maxWidth:"1200px", margin:"0 auto", display:"grid", gridTemplateColumns:"0.85fr 1.15fr", gap:"3.5rem", alignItems:"stretch" }}>
           <div>
             <Tag text="Get in Touch" />
-            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>WE'RE HERE TO <span style={{ color:"var(--acc)" }}>HELP YOU MOVE</span></h2>
+            <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)", lineHeight:1.15, marginBottom:"1rem" }}>We're Here to <span style={{ color:"var(--acc)" }}>Help You Move</span></h2>
             <p style={{ ...B, color:"var(--grey)", marginBottom:"2rem", lineHeight:1.8, fontSize:"0.93rem" }}>Looking for <strong>Movers and Packers near you in Pune</strong>? Reach out for a free survey, quote, or any questions. Our team responds quickly!</p>
             {[{ic:"📍",t:"Head Office",c:"Khanna Building, Office No.2, Plot No.44,\nSec No.23, Transport Nagar,\nNigdi, Pune - 411044"},
               {ic:"📞",t:"Phone / WhatsApp",c:"+91 91461 71008\n+91 99620 71008 (Chennai)\n+91 99629 71008 (Ahmedabad)"},
@@ -617,14 +617,14 @@ const Contact = ({ setPage }) => {
           </div>
           <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"2px solid var(--acc)", display:"flex", flexDirection:"column" }}>
             <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
-              <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>GET A <span style={{ color:"var(--acc)" }}>FREE QUOTE</span></div>
+              <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>Get a <span style={{ color:"var(--acc)" }}>Free Quote</span></div>
               <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>#1 Packers and Movers Pune · Reply within 2 hours · No obligation · 100% Free</div>
             </div>
             <div style={{ padding:"1.8rem 2rem", flex:1, display:"flex", flexDirection:"column" }}>
             {st==="success"?(
               <div style={{ background:"#f0fdf4", border:"1px solid #c3e6cb", padding:"2rem", borderRadius:"8px", textAlign:"center" }}>
                 <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
-                <h4 style={{ ...H, fontWeight:800, fontSize:"1.2rem", color:"#2d6a4f", marginBottom:"0.4rem" }}>REQUEST SENT!</h4>
+                <h4 style={{ ...H, fontWeight:800, fontSize:"1.2rem", color:"#2d6a4f", marginBottom:"0.4rem" }}>Request Sent!</h4>
                 <p style={{ ...B, color:"#40916c", fontSize:"0.88rem" }}>We'll call you within 2 hours to confirm.</p>
                 <button onClick={()=>setSt("idle")} style={{ marginTop:"1rem", background:"var(--acc)", color:"var(--black)", border:"none", padding:"9px 22px", borderRadius:"4px", cursor:"pointer", ...H, fontWeight:700, fontSize:"0.8rem" }}>Submit Another</button>
               </div>
@@ -677,8 +677,8 @@ const Footer = ({ setPage }) => (
           <div style={{ display:"flex", alignItems:"center", gap:"11px", marginBottom:"1rem" }}>
             <img src={LOGO} alt="Riya Cargo Packers and Movers Pune" style={{ width:"44px", height:"44px", borderRadius:"50%", objectFit:"cover", border:"2px solid var(--acc)" }} />
             <div>
-              <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white" }}>RIYA CARGO</div>
-              <div style={{ ...B, fontSize:"0.48rem", color:"rgba(255,255,255,0.35)", letterSpacing:"2px" }}>MOVERS & PACKERS (REGD.)</div>
+              <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white" }}>Riya Cargo</div>
+              <div style={{ ...B, fontSize:"0.48rem", color:"rgba(255,255,255,0.35)", letterSpacing:"2px", textTransform:"uppercase" }}>Movers & Packers (Regd.)</div>
             </div>
           </div>
           {/* KEYWORD — Footer description */}
