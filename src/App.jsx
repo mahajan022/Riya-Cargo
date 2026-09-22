@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { LOGO, IMG_OFFICE, IMG_WH1, IMG_WH2, IMG_TRUCK, IMG_WORKERS, IMG_BOXES, IMG_FURN, IMG_INDOOR, REAL_01, REAL_02, REAL_03, REAL_04, REAL_05, REAL_06, REAL_07 } from "./images.js";
+import { LOGO, IMG_OFFICE, IMG_WH1, IMG_WH2, IMG_WORKERS, IMG_INDOOR, REAL_01, REAL_02, REAL_03, REAL_04, REAL_05, REAL_06, REAL_07, REAL_08, REAL_09, REAL_10, REAL_11, REAL_12, REAL_13, REAL_14, REAL_15 } from "./images.js";
 
 // ─── GOOGLE ADS CONVERSION TRACKING ─────────────────────────────────────────
 // STEP 1: Replace AW-XXXXXXXXX with your Google Ads Conversion ID
@@ -63,9 +63,9 @@ const G = () => (
       .g4{grid-template-columns:1fr 1fr!important} .gsd{grid-template-columns:1fr!important}
       .gal{columns:2!important} .cgrid{grid-template-columns:1fr!important}
       .fgrid{grid-template-columns:1fr 1fr!important}
-      .hero-inner{flex-direction:column!important; padding:3rem 1.5rem 2.5rem!important; gap:2rem!important; min-height:unset!important; align-items:flex-start!important}
-      .hero-form{flex:unset!important; width:100%!important}
-      .hero-text p{max-width:100%!important}
+      .hero-inner{grid-template-columns:1fr!important; grid-template-areas:"top" "form" "bottom"!important; padding:2.2rem 1.5rem 2.5rem!important; row-gap:1.5rem!important; min-height:unset!important}
+      .hero-form{width:100%!important; margin-top:0!important}
+      .hero-bottom p{max-width:100%!important}
       .hero-stats{justify-content:flex-start!important}
       .hero-dots{justify-content:flex-start!important}
       .sec{padding:3rem 1.2rem!important}
@@ -87,6 +87,11 @@ const G = () => (
     .mm button:hover,.mm button.act{color:var(--navy)}
     input:focus,select:focus,textarea:focus{border-color:var(--acc)!important;box-shadow:0 0 0 3px rgba(212,153,26,0.15)!important;outline:none}
     input,select,textarea{outline:none}
+    /* ── Hero grid: desktop = text (top+bottom) left, form spans right; mobile = top, form, bottom ── */
+    .hero-inner { display:grid; grid-template-columns:1fr 420px; grid-template-areas:"top form" "bottom form"; align-items:center; column-gap:3rem; row-gap:0.5rem; }
+    .hero-top { grid-area:top; align-self:end; }
+    .hero-bottom { grid-area:bottom; align-self:start; }
+    .hero-form { grid-area:form; align-self:center; }
     .trust-badge { display:inline-flex; align-items:center; gap:6px; background:var(--navyl); border:1px solid #b0c2e0; color:var(--navy); border-radius:20px; padding:4px 12px; font-size:0.72rem; font-weight:700; }
     .urgency-pulse { animation: pulseBorder 2s infinite; }
     .shake { animation: shake 0.5s ease; }
@@ -232,7 +237,7 @@ const Hero = ({ setPage }) => {
   const [form, setForm] = useState({ name:"", phone:"", from:"", to:"", service:"", date:"" });
   const [st, setSt] = useState("idle");
   const [shakePhone, setShakePhone] = useState(false);
-  const slides = [IMG_WORKERS, IMG_FURN, IMG_BOXES, REAL_03];
+  const slides = [IMG_WORKERS, REAL_08, REAL_03, REAL_13];
   useEffect(()=>{ const t=setInterval(()=>setSl(s=>(s+1)%slides.length),5000); return()=>clearInterval(t); },[]);
 
   // Urgency: countdown to end of day
@@ -279,10 +284,10 @@ const Hero = ({ setPage }) => {
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)" }} />
       </div>
 
-      <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", display:"flex", alignItems:"center", gap:"3rem", minHeight:"88vh" }}>
+      <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", minHeight:"88vh" }}>
 
-        {/* Left text */}
-        <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
+        {/* Top: badge + headline (always first, even on mobile) */}
+        <div className="hero-top" style={{ minWidth:0 }}>
           {/* Trust badge */}
           <div style={{ display:"inline-flex", alignItems:"center", gap:"7px", background:"rgba(212,153,26,0.18)", border:"1px solid rgba(212,153,26,0.4)", padding:"3px 12px 3px 5px", borderRadius:"30px", marginBottom:"1.1rem", animation:"fadeUp 0.7s ease both" }}>
             <span style={{ background:"var(--acc)", color:"var(--navy)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>✓ ISO Certified</span>
@@ -292,7 +297,10 @@ const Hero = ({ setPage }) => {
           <h1 style={{ ...H, fontWeight:900, fontSize:"clamp(1.8rem,4.2vw,3.4rem)", lineHeight:1.1, color:"white", animation:"fadeUp 0.8s ease 0.1s both", marginBottom:"0.9rem", textShadow:"0 2px 10px rgba(0,0,0,0.4)" }}>
             #1 Packers and<br /><span style={{ color:"var(--acc)" }}>Movers in Pune</span>
           </h1>
+        </div>
 
+        {/* Bottom: supporting copy + trust + CTAs (comes after the form on mobile) */}
+        <div className="hero-bottom" style={{ minWidth:0 }}>
           <p style={{ ...B, fontSize:"0.92rem", color:"rgba(255,255,255,0.75)", maxWidth:"420px", lineHeight:1.85, animation:"fadeUp 0.8s ease 0.2s both", marginBottom:"1.2rem" }}>
             Trusted <strong style={{color:"rgba(255,255,255,0.9)"}}>Movers and Packers in Pune</strong> — household shifting, office relocation & car transport. Safe, insured & stress-free.
           </p>
@@ -336,8 +344,8 @@ const Hero = ({ setPage }) => {
           </div>
         </div>
 
-        {/* Right: form */}
-        <div className="hero-form" style={{ flex:"0 0 420px", animation:"fadeUp 0.8s ease 0.15s both" }}>
+        {/* Form: spans both rows on desktop (right column); appears right after the headline on mobile */}
+        <div className="hero-form" style={{ animation:"fadeUp 0.8s ease 0.15s both" }}>
           {st==="success" ? (
             <div style={{ background:"white", borderRadius:"10px", padding:"2.5rem", textAlign:"center" }}>
               <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
@@ -583,8 +591,8 @@ const Home = ({ setPage }) => {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gridTemplateRows:"185px 185px", gap:"10px" }}>
             <img src={IMG_INDOOR} alt="Packers and Movers Pune - Indoor Packing" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px", gridRow:"span 2" }} />
-            <img src={IMG_FURN} alt="Movers and Packers Pune - Furniture Wrapping" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
-            <img src={IMG_BOXES} alt="Professional Packing Services Pune" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
+            <img src={REAL_10} alt="Movers and Packers Pune - Furniture Wrapping" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
+            <img src={REAL_09} alt="Professional Packing Services Pune" style={{ width:"100%", height:"100%", objectFit:"cover", borderRadius:"6px" }} />
           </div>
         </div>
       </div>
@@ -646,7 +654,7 @@ const Home = ({ setPage }) => {
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>See What We <span style={{ color:"var(--acc)" }}>Do Best</span></h2>
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", gridTemplateRows:"190px 190px", gap:"10px" }}>
-            {[IMG_WORKERS,IMG_FURN,IMG_BOXES,IMG_WH1,IMG_TRUCK].map((src,i)=>(
+            {[IMG_WORKERS,REAL_11,REAL_12,IMG_WH1,REAL_14].map((src,i)=>(
               <div key={i} style={{ overflow:"hidden", borderRadius:"6px", gridRow:i===0?"span 2":undefined }}>
                 <img src={src} style={{ width:"100%", height:"100%", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.06)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} alt="Packers Movers Pune" />
               </div>
@@ -781,8 +789,8 @@ const About = ({ setPage }) => (
 const Services = ({ setPage }) => {
   const sv=[
     {i:"🏠",t:"Household Shifting",img:IMG_INDOOR,d:"Complete home relocation with professional packing, transport and unpacking. As top-rated Movers and Packers in Pune, we handle every item with care.",tg:["Local Shifting","Inter-city","Unpacking","Furniture Assembly"]},
-    {i:"📦",t:"Packing & Unpacking",img:IMG_FURN,d:"Expert packing using high-quality corrugated boxes, stretch wrap, and foam sheets.",tg:["Bubble Wrap","Foam Packing","Labeling","Fragile Handling"]},
-    {i:"🚗",t:"Car Transportation",img:IMG_TRUCK,d:"Enclosed and open carrier transport. Door-to-door delivery across India with insurance.",tg:["Two-Wheelers","Four-Wheelers","Luxury Cars","Pan-India"]},
+    {i:"📦",t:"Packing & Unpacking",img:REAL_10,d:"Expert packing using high-quality corrugated boxes, stretch wrap, and foam sheets.",tg:["Bubble Wrap","Foam Packing","Labeling","Fragile Handling"]},
+    {i:"🚗",t:"Car Transportation",img:REAL_13,d:"Enclosed and open carrier transport. Door-to-door delivery across India with insurance.",tg:["Two-Wheelers","Four-Wheelers","Luxury Cars","Pan-India"]},
     {i:"🏢",t:"Office Shifting",img:IMG_WORKERS,d:"Minimal-downtime office relocation with IT equipment handled with anti-static materials.",tg:["IT Equipment","Server Rooms","After-Hours","Full Setup"]},
     {i:"🏭",t:"Warehousing",img:IMG_WH1,d:"Secure 24/7 monitored warehouse for short and long-term storage.",tg:["Short-Term","Long-Term","24/7 Security","Zone-Organized"]},
   ];
@@ -824,13 +832,15 @@ const Services = ({ setPage }) => {
 const Gallery = ({ setPage }) => {
   const [hv, setHv] = useState(null);
   const items=[
-    {s:IMG_WORKERS,c:"Professional Moving Crew"},{s:IMG_FURN,c:"Expert Furniture Wrapping"},
-    {s:IMG_BOXES,c:"Apartment Move Complete"},{s:IMG_INDOOR,c:"Systematic Indoor Packing"},
-    {s:IMG_TRUCK,c:"Ready for Transit"},{s:IMG_WH1,c:"Secure Warehouse"},
-    {s:IMG_WH2,c:"Storage Facility"},{s:IMG_OFFICE,c:"Our Pune Office"},
+    {s:IMG_WORKERS,c:"Professional Moving Crew"},{s:IMG_INDOOR,c:"Systematic Indoor Packing"},
+    {s:IMG_WH1,c:"Secure Warehouse"},{s:IMG_WH2,c:"Storage Facility"},{s:IMG_OFFICE,c:"Our Pune Office"},
     {s:REAL_01,c:"On-Site Packing"},{s:REAL_02,c:"Loading in Progress"},
     {s:REAL_03,c:"Fleet Ready"},{s:REAL_04,c:"Careful Handling"},
     {s:REAL_05,c:"Safe Delivery"},{s:REAL_06,c:"Team at Work"},{s:REAL_07,c:"Move Complete"},
+    {s:REAL_08,c:"Furniture Wrapped & Ready"},{s:REAL_09,c:"Sofa & Furniture Packing"},
+    {s:REAL_10,c:"Boxes Stacked & Labeled"},{s:REAL_11,c:"Luggage & Personal Items"},
+    {s:REAL_12,c:"Goods Packed Securely"},{s:REAL_13,c:"Two-Wheeler Wrapping"},
+    {s:REAL_14,c:"Crew at Work"},{s:REAL_15,c:"Pan-India Delivery"},
   ];
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
