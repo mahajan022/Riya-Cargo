@@ -276,7 +276,7 @@ const Hero = ({ setPage }) => {
         {slides.map((src,i)=>(
           <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
         ))}
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(110deg, rgba(9,26,61,0.90) 0%, rgba(15,38,87,0.80) 50%, rgba(15,38,87,0.55) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)" }} />
       </div>
 
       <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", display:"flex", alignItems:"center", gap:"3rem", minHeight:"88vh" }}>
