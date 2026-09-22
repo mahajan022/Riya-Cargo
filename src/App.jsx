@@ -21,11 +21,11 @@ const EJS_TPL = "YOUR_TEMPLATE_ID";
 const EJS_KEY = "YOUR_PUBLIC_KEY";
 
 /* ─── THEME ──────────────────────────────────────────────────────────────────
-   Primary: #d4991a (golden yellow)
-   Accent dark: #b07d0d
-   Accent light: #fdf6e3
-   Black: #1a1a1a
-   Trust green: #16a34a
+   Primary accent: #d4991a (gold)
+   Navy primary: #0f2657 (deep navy blue)
+   Navy dark: #091a3d
+   Navy light: #e8edf7
+   WhatsApp bubble: #25D366 (brand)
 */
 
 const G = () => (
@@ -34,10 +34,11 @@ const G = () => (
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --acc: #d4991a; --accd: #b07d0d; --accl: #fdf6e3; --accb: rgba(212,153,26,0.12);
-      --black: #1a1a1a; --dark: #333; --grey: #777;
-      --border: #ebebeb; --bg: #fff; --bgalt: #fafafa;
-      --green: #16a34a; --greenl: #dcfce7;
-      --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-lg: 0 8px 28px rgba(0,0,0,0.08);
+      --navy: #0f2657; --navyd: #091a3d; --navyl: #e8edf7; --navym: #1a3678;
+      --black: #0f2657; --dark: #1e3a5f; --grey: #6b7a8d;
+      --border: #dce6f0; --bg: #fff; --bgalt: #f5f8ff;
+      --green: #d4991a; --greenl: #fdf6e3;
+      --shadow: 0 2px 12px rgba(15,38,87,0.08); --shadow-lg: 0 8px 28px rgba(15,38,87,0.12);
     }
     html, body, #root { width:100%; max-width:100vw; overflow-x:hidden; }
     html { scroll-behavior: smooth; }
@@ -54,7 +55,7 @@ const G = () => (
     @keyframes slideDown { from{opacity:0;transform:translateY(-100%)} to{opacity:1;transform:translateY(0)} }
 
     /* ── Sticky CTA bar ── */
-    .sticky-cta { position:fixed; bottom:0; left:0; right:0; z-index:900; display:none; background:#1a1a1a; border-top:3px solid var(--acc); padding:10px 1rem; gap:10px; align-items:center; justify-content:center; animation:slideDown 0.4s ease; }
+    .sticky-cta { position:fixed; bottom:0; left:0; right:0; z-index:900; display:none; background:var(--navy); border-top:3px solid var(--acc); padding:10px 1rem; gap:10px; align-items:center; justify-content:center; animation:slideDown 0.4s ease; }
     .sticky-cta.show { display:flex; }
     @media(max-width:900px){
       .nl{display:none!important} .hb{display:flex!important}
@@ -83,10 +84,10 @@ const G = () => (
     .mm{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,0.99);flex-direction:column;align-items:center;justify-content:center;gap:1rem}
     .mm.open{display:flex}
     .mm button{background:transparent;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:1px;text-transform:uppercase;color:var(--dark);padding:10px 20px;transition:color 0.2s}
-    .mm button:hover,.mm button.act{color:var(--acc)}
+    .mm button:hover,.mm button.act{color:var(--navy)}
     input:focus,select:focus,textarea:focus{border-color:var(--acc)!important;box-shadow:0 0 0 3px rgba(212,153,26,0.15)!important;outline:none}
     input,select,textarea{outline:none}
-    .trust-badge { display:inline-flex; align-items:center; gap:6px; background:var(--greenl); border:1px solid #bbf7d0; color:var(--green); border-radius:20px; padding:4px 12px; font-size:0.72rem; font-weight:700; }
+    .trust-badge { display:inline-flex; align-items:center; gap:6px; background:var(--navyl); border:1px solid #b0c2e0; color:var(--navy); border-radius:20px; padding:4px 12px; font-size:0.72rem; font-weight:700; }
     .urgency-pulse { animation: pulseBorder 2s infinite; }
     .shake { animation: shake 0.5s ease; }
     .rating-star { color: #f59e0b; }
@@ -104,7 +105,7 @@ const Tag = ({ text }) => (
 const Btn = ({ children, onClick, outline, big }) => {
   const [hov, setHov] = useState(false);
   const bg = outline ? (hov ? "var(--acc)" : "transparent") : "var(--acc)";
-  const cl = outline ? (hov ? "var(--black)" : "var(--acc)") : "var(--black)";
+  const cl = outline ? (hov ? "var(--navy)" : "var(--navy)") : "var(--navy)";
   return (
     <button onClick={onClick} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
       style={{ background:bg, color:cl, border:outline?"2px solid var(--acc)":"none", padding:big?"14px 32px":"11px 26px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:big?"0.95rem":"0.82rem", letterSpacing:"0.8px", textTransform:"uppercase", transition:"all 0.22s", transform:hov?"translateY(-2px)":"translateY(0)", boxShadow:hov?"0 6px 20px rgba(212,153,26,0.4)":"none" }}>
@@ -130,7 +131,7 @@ const ReviewBadge = () => (
 );
 
 const PH = ({ tag, title, setPage }) => (
-  <div className="ph" style={{ background:"#f4f0e6", padding:"5rem 2rem 2.8rem", position:"relative", borderBottom:"1px solid var(--border)" }}>
+  <div className="ph" style={{ background:"var(--navyl)", padding:"5rem 2rem 2.8rem", position:"relative", borderBottom:"1px solid #b0c2e0" }}>
     <div style={{ position:"absolute", top:0, left:0, right:0, height:"4px", background:"var(--acc)" }} />
     <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
       <Tag text={tag} />
@@ -150,8 +151,8 @@ const CTA = ({ title, sub, btn, setPage }) => (
     <div style={{ display:"flex", gap:"12px", justifyContent:"center", flexWrap:"wrap" }}>
       <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
         style={{ background:"var(--black)", color:"white", border:"none", padding:"13px 28px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.88rem", letterSpacing:"0.8px", textTransform:"uppercase", transition:"all 0.22s", textDecoration:"none", display:"inline-block" }}
-        onMouseEnter={e=>{ e.currentTarget.style.background="white"; e.currentTarget.style.color="var(--black)"; }}
-        onMouseLeave={e=>{ e.currentTarget.style.background="var(--black)"; e.currentTarget.style.color="white"; }}>
+        onMouseEnter={e=>{ e.currentTarget.style.background="white"; e.currentTarget.style.color="var(--navy)"; }}
+        onMouseLeave={e=>{ e.currentTarget.style.background="var(--navy)"; e.currentTarget.style.color="white"; }}>
         📞 Call Now: 91461 71008
       </a>
       <button onClick={()=>setPage("Contact")} style={{ background:"transparent", color:"var(--black)", border:"2px solid var(--black)", padding:"13px 28px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.88rem", letterSpacing:"0.8px", textTransform:"uppercase" }}>
@@ -171,7 +172,7 @@ const Nav = ({ page, setPage }) => {
   return (
     <>
       {/* top bar */}
-      <div style={{ background:"#2a2a2a", padding:"5px 2rem", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:"6px" }}>
+      <div style={{ background:"var(--navyd)", padding:"5px 2rem", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:"6px" }}>
         <div style={{ display:"flex", gap:"1.5rem", flexWrap:"wrap" }}>
           {/* CONVERSION: click-to-call fires Google Ads conversion */}
           <a href="tel:9146171008"
@@ -183,7 +184,7 @@ const Nav = ({ page, setPage }) => {
         </div>
         <div className="top-bar-right" style={{ display:"flex", gap:"1rem", alignItems:"center" }}>
           <span style={{ ...B, fontSize:"0.68rem", color:"rgba(255,255,255,0.5)" }}>GSTIN: 33BTFPA7894F1ZN</span>
-          <span style={{ ...B, fontSize:"0.68rem", color:"#86efac", fontWeight:600 }}>● Open Now</span>
+          <span style={{ ...B, fontSize:"0.68rem", color:"#90d4a0", fontWeight:600 }}>● Open Now</span>
         </div>
       </div>
       {/* main nav */}
@@ -205,7 +206,7 @@ const Nav = ({ page, setPage }) => {
           ))}
           {/* CONVERSION: direct call button in nav */}
           <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-            style={{ marginLeft:"8px", background:"var(--green)", color:"white", border:"none", padding:"8px 16px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.78rem", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"5px" }}>
+            style={{ marginLeft:"8px", background:"var(--acc)", color:"var(--navy)", border:"none", padding:"8px 16px", cursor:"pointer", borderRadius:"4px", ...H, fontWeight:700, fontSize:"0.78rem", textDecoration:"none", display:"inline-flex", alignItems:"center", gap:"5px" }}>
             📞 Call Now
           </a>
         </div>
@@ -217,7 +218,7 @@ const Nav = ({ page, setPage }) => {
         <button onClick={()=>setMo(false)} style={{ position:"absolute", top:"20px", right:"20px", fontSize:"1.8rem", color:"var(--grey)", background:"none", border:"none", cursor:"pointer" }}>✕</button>
         {ls.map(l=><button key={l} className={page===l?"act":""} onClick={()=>go(l)}>{l==="Contact"?"Get Free Quote":l}</button>)}
         <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-          style={{ background:"var(--green)", color:"white", padding:"12px 28px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"1.1rem", textDecoration:"none", marginTop:"8px" }}>
+          style={{ background:"var(--navy)", color:"white", padding:"12px 28px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"1.1rem", textDecoration:"none", marginTop:"8px" }}>
           📞 +91 91461 71008
         </a>
       </div>
@@ -275,7 +276,7 @@ const Hero = ({ setPage }) => {
         {slides.map((src,i)=>(
           <div key={i} style={{ position:"absolute", inset:0, backgroundImage:`url(${src})`, backgroundSize:"cover", backgroundPosition:"center", opacity:sl===i?1:0, transition:"opacity 1.4s ease" }} />
         ))}
-        <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.74) 50%, rgba(10,10,10,0.62) 100%)" }} />
+        <div style={{ position:"absolute", inset:0, background:"linear-gradient(110deg, rgba(9,26,61,0.90) 0%, rgba(15,38,87,0.80) 50%, rgba(15,38,87,0.55) 100%)" }} />
       </div>
 
       <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", display:"flex", alignItems:"center", gap:"3rem", minHeight:"88vh" }}>
@@ -284,7 +285,7 @@ const Hero = ({ setPage }) => {
         <div className="hero-text" style={{ flex:"1 1 0", minWidth:0 }}>
           {/* Trust badge */}
           <div style={{ display:"inline-flex", alignItems:"center", gap:"7px", background:"rgba(212,153,26,0.18)", border:"1px solid rgba(212,153,26,0.4)", padding:"3px 12px 3px 5px", borderRadius:"30px", marginBottom:"1.1rem", animation:"fadeUp 0.7s ease both" }}>
-            <span style={{ background:"var(--acc)", color:"var(--black)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>✓ ISO Certified</span>
+            <span style={{ background:"var(--acc)", color:"var(--navy)", padding:"2px 9px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.6rem", letterSpacing:"1px" }}>✓ ISO Certified</span>
             <span style={{ ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.8)", letterSpacing:"0.8px" }}>Pune's Most Trusted Movers</span>
           </div>
 
@@ -302,7 +303,7 @@ const Hero = ({ setPage }) => {
               <span style={{ color:"#f59e0b", fontSize:"0.85rem" }}>★★★★★</span>
               <span style={{ ...B, fontSize:"0.72rem", color:"rgba(255,255,255,0.85)", fontWeight:600 }}>4.8 (127 Reviews)</span>
             </div>
-            <div style={{ background:"rgba(22,163,74,0.25)", border:"1px solid rgba(22,163,74,0.4)", padding:"4px 10px", borderRadius:"20px", ...B, fontSize:"0.68rem", color:"#86efac", fontWeight:600 }}>
+            <div style={{ background:"rgba(212,153,26,0.2)", border:"1px solid rgba(212,153,26,0.45)", padding:"4px 10px", borderRadius:"20px", ...B, fontSize:"0.68rem", color:"#f5c842", fontWeight:600 }}>
               ● Free Survey Today
             </div>
           </div>
@@ -319,11 +320,11 @@ const Hero = ({ setPage }) => {
           {/* CONVERSION: Direct call button in hero */}
           <div style={{ display:"flex", gap:"12px", flexWrap:"wrap", animation:"fadeUp 0.8s ease 0.35s both" }}>
             <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-              style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"var(--green)", color:"white", padding:"13px 22px", borderRadius:"6px", ...H, fontWeight:800, fontSize:"0.9rem", textDecoration:"none", boxShadow:"0 4px 18px rgba(22,163,74,0.4)" }}>
+              style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"var(--acc)", color:"var(--navy)", padding:"13px 22px", borderRadius:"6px", ...H, fontWeight:800, fontSize:"0.9rem", textDecoration:"none", boxShadow:"0 4px 18px rgba(212,153,26,0.45)" }}>
               📞 Call Free: 91461 71008
             </a>
-            <a href="https://wa.me/919146171008" target="_blank" rel="noreferrer"
-              style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"#25D366", color:"white", padding:"13px 20px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.85rem", textDecoration:"none" }}>
+            <a href="https://wa.me/919146171008?text=Hi%20Riya%20Cargo%2C%20I%20need%20a%20quote%20for%20moving" target="_blank" rel="noreferrer"
+              style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"rgba(255,255,255,0.15)", border:"2px solid rgba(255,255,255,0.5)", color:"white", padding:"13px 20px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.85rem", textDecoration:"none", backdropFilter:"blur(4px)" }}>
               WhatsApp Us
             </a>
           </div>
@@ -340,7 +341,7 @@ const Hero = ({ setPage }) => {
           {st==="success" ? (
             <div style={{ background:"white", borderRadius:"10px", padding:"2.5rem", textAlign:"center" }}>
               <div style={{ fontSize:"2.5rem", marginBottom:"0.7rem" }}>✅</div>
-              <h3 style={{ ...H, fontWeight:700, color:"var(--green)", fontSize:"1.2rem", marginBottom:"0.4rem" }}>Request Sent!</h3>
+              <h3 style={{ ...H, fontWeight:700, color:"var(--navy)", fontSize:"1.2rem", marginBottom:"0.4rem" }}>Request Sent!</h3>
               <p style={{ ...B, color:"var(--grey)", fontSize:"0.87rem", marginBottom:"1rem" }}>We'll call you within <strong>30 minutes</strong>.</p>
               <div style={{ background:"var(--accl)", border:"1px solid rgba(212,153,26,0.3)", borderRadius:"8px", padding:"12px", marginBottom:"1rem" }}>
                 <div style={{ ...B, fontSize:"0.8rem", color:"var(--dark)" }}>Or call us directly right now:</div>
@@ -352,7 +353,7 @@ const Hero = ({ setPage }) => {
           ):(
             <div style={{ background:"white", borderRadius:"10px", overflow:"hidden", boxShadow:"0 12px 40px rgba(0,0,0,0.3)" }} className="urgency-pulse">
               {/* Urgency header */}
-              <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1rem 1.4rem", borderBottom:"3px solid var(--acc)" }}>
+              <div style={{ background:"linear-gradient(135deg, var(--navyd), var(--navy))", padding:"1rem 1.4rem", borderBottom:"3px solid var(--acc)" }}>
                 <div style={{ ...H, fontWeight:800, fontSize:"1rem", color:"white", marginBottom:"0.15rem" }}>
                   Get a <span style={{ color:"var(--acc)" }}>Free Quote</span>
                 </div>
@@ -381,7 +382,7 @@ const Hero = ({ setPage }) => {
                   <div><label style={{...lbl, color:"var(--grey)"}}>Date</label><input type="date" style={inp} value={form.date} onChange={e=>setForm({...form,date:e.target.value})} /></div>
                 </div>
                 <button onClick={submit} disabled={st==="sending"}
-                  style={{ width:"100%", marginTop:"1rem", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"12px", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", ...H, fontWeight:800, fontSize:"0.88rem", letterSpacing:"0.5px", textTransform:"uppercase", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}>
+                  style={{ width:"100%", marginTop:"1rem", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"var(--navyd)", border:"none", padding:"12px", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", ...H, fontWeight:800, fontSize:"0.88rem", letterSpacing:"0.5px", textTransform:"uppercase", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}>
                   {st==="sending"?"Sending...":"Get My FREE Quote →"}
                 </button>
                 {/* Trust micro-copy under button */}
@@ -401,7 +402,7 @@ const Hero = ({ setPage }) => {
 
 /* ── TRUST BAR ── */
 const TrustBar = () => (
-  <div style={{ background:"white", borderBottom:"1px solid var(--border)", borderTop:"1px solid var(--border)", padding:"14px 2rem" }}>
+  <div style={{ background:"var(--navyl)", borderBottom:"1px solid #b0c2e0", borderTop:"1px solid #b0c2e0", padding:"14px 2rem" }}>
     <div style={{ maxWidth:"1200px", margin:"0 auto", display:"flex", justifyContent:"center", flexWrap:"wrap", gap:"1.5rem", alignItems:"center" }}>
       {[
         { icon:"🏆", text:"ISO 9001:2015 Certified" },
@@ -413,7 +414,7 @@ const TrustBar = () => (
       ].map((t,i)=>(
         <div key={i} style={{ display:"flex", alignItems:"center", gap:"6px" }}>
           <span style={{ fontSize:"0.9rem" }}>{t.icon}</span>
-          <span style={{ ...B, fontSize:"0.75rem", fontWeight:600, color:"var(--dark)" }}>{t.text}</span>
+          <span style={{ ...B, fontSize:"0.75rem", fontWeight:600, color:"var(--navy)" }}>{t.text}</span>
         </div>
       ))}
     </div>
@@ -441,7 +442,7 @@ const Pricing = ({ setPage }) => {
         </div>
         <div className="pricing-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.2rem", alignItems:"stretch" }}>
           {plans.map((p,i)=>(
-            <div key={i} style={{ background:p.popular?"var(--black)":"white", border:p.popular?"3px solid var(--acc)":"1px solid var(--border)", borderRadius:"10px", padding:"1.8rem 1.4rem", position:"relative", transition:"transform 0.3s,box-shadow 0.3s" }}
+            <div key={i} style={{ background:p.popular?"var(--navy)":"white", border:p.popular?"3px solid var(--acc)":"1px solid var(--border)", borderRadius:"10px", padding:"1.8rem 1.4rem", position:"relative", transition:"transform 0.3s,box-shadow 0.3s" }}
               onMouseEnter={e=>{ e.currentTarget.style.transform="translateY(-6px)"; e.currentTarget.style.boxShadow="var(--shadow-lg)"; }}
               onMouseLeave={e=>{ e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="none"; }}>
               {p.popular && <div style={{ position:"absolute", top:"-12px", left:"50%", transform:"translateX(-50%)", background:"var(--acc)", color:"var(--black)", padding:"3px 14px", borderRadius:"20px", ...H, fontWeight:700, fontSize:"0.65rem", letterSpacing:"1px", whiteSpace:"nowrap" }}>⭐ MOST POPULAR</div>}
@@ -523,11 +524,11 @@ const StickyCTA = ({ setPage }) => {
   return (
     <div className={`sticky-cta ${show?"show":""}`}>
       <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-        style={{ flex:1, background:"var(--green)", color:"white", border:"none", padding:"12px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.88rem", textDecoration:"none", textAlign:"center", display:"block" }}>
+        style={{ flex:1, background:"var(--acc)", color:"var(--navyd)", border:"none", padding:"12px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.88rem", textDecoration:"none", textAlign:"center", display:"block" }}>
         📞 Call Now
       </a>
       <button onClick={()=>setPage("Contact")}
-        style={{ flex:1, background:"var(--acc)", color:"var(--black)", border:"none", padding:"12px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.88rem", cursor:"pointer" }}>
+        style={{ flex:1, background:"white", color:"var(--navy)", border:"none", padding:"12px", borderRadius:"6px", ...H, fontWeight:700, fontSize:"0.88rem", cursor:"pointer" }}>
         Get Free Quote
       </button>
     </div>
@@ -906,7 +907,7 @@ const Contact = ({ setPage }) => {
             ))}
           </div>
           <div style={{ background:"white", borderRadius:"12px", overflow:"hidden", boxShadow:"0 4px 24px rgba(0,0,0,0.08)", border:"2px solid var(--acc)", display:"flex", flexDirection:"column" }}>
-            <div style={{ background:"linear-gradient(135deg, #1a1a1a, #2d2d2d)", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
+            <div style={{ background:"linear-gradient(135deg, var(--navyd), var(--navy))", padding:"1.6rem 2rem", borderBottom:"3px solid var(--acc)" }}>
               <div style={{ ...H, fontWeight:800, fontSize:"1.3rem", color:"white", marginBottom:"0.2rem" }}>Get a <span style={{ color:"var(--acc)" }}>Free Quote</span></div>
               <div style={{ ...B, fontSize:"0.73rem", color:"rgba(255,255,255,0.5)" }}>#1 Packers and Movers Pune · Reply within 30 minutes · 100% Free</div>
             </div>
@@ -917,7 +918,7 @@ const Contact = ({ setPage }) => {
                 <h4 style={{ ...H, fontWeight:800, fontSize:"1.2rem", color:"#2d6a4f", marginBottom:"0.4rem" }}>Request Sent!</h4>
                 <p style={{ ...B, color:"#40916c", fontSize:"0.88rem", marginBottom:"1rem" }}>We'll call you within <strong>30 minutes</strong> to confirm.</p>
                 <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-                  style={{ ...H, fontWeight:800, fontSize:"1rem", color:"var(--green)", textDecoration:"none", display:"block", marginBottom:"1rem" }}>
+                  style={{ ...H, fontWeight:800, fontSize:"1rem", color:"var(--acc)", textDecoration:"none", display:"block", marginBottom:"1rem" }}>
                   📞 Can't wait? Call: 91461 71008
                 </a>
                 <button onClick={()=>setSt("idle")} style={{ background:"var(--acc)", color:"var(--black)", border:"none", padding:"9px 22px", borderRadius:"4px", cursor:"pointer", ...H, fontWeight:700, fontSize:"0.8rem" }}>Submit Another</button>
@@ -947,7 +948,7 @@ const Contact = ({ setPage }) => {
                 </div>
                 <div style={{ marginBottom:"1.2rem" }}><label style={lbl}>Message</label><textarea style={{ ...inp, resize:"vertical", minHeight:"100px" }} placeholder="Any details about your move..." {...bind("msg")} /></div>
                 </div>
-                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", marginTop:"auto", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"#1a1a1a", border:"none", padding:"14px", ...H, fontWeight:800, fontSize:"0.9rem", letterSpacing:"1.5px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}>
+                <button onClick={submit} disabled={st==="sending"} style={{ width:"100%", marginTop:"auto", background:st==="sending"?"#ccc":`linear-gradient(135deg, #e6ac20, var(--acc), #c48a0a)`, color:"var(--navyd)", border:"none", padding:"14px", ...H, fontWeight:800, fontSize:"0.9rem", letterSpacing:"1.5px", textTransform:"uppercase", cursor:st==="sending"?"not-allowed":"pointer", borderRadius:"6px", transition:"all 0.25s", boxShadow:"0 4px 15px rgba(212,153,26,0.3)" }}>
                   {st==="sending"?"Sending...":"Send My Request →"}
                 </button>
                 <div style={{ display:"flex", justifyContent:"center", gap:"16px", marginTop:"10px", flexWrap:"wrap" }}>
@@ -996,7 +997,7 @@ const Footer = ({ setPage }) => (
           <div style={{ display:"inline-block", ...B, fontSize:"0.7rem", color:"rgba(255,255,255,0.6)", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", padding:"5px 12px", borderRadius:"5px", marginBottom:"12px" }}>GST: 33BTFPA7894F1ZN</div>
           <div>
             <a href="tel:9146171008" onClick={()=>fireConversion(CALL_LABEL)}
-              style={{ display:"flex", alignItems:"center", gap:"8px", background:"var(--green)", color:"white", padding:"10px 16px", borderRadius:"6px", textDecoration:"none", width:"fit-content" }}>
+              style={{ display:"flex", alignItems:"center", gap:"8px", background:"var(--acc)", color:"var(--navyd)", padding:"10px 16px", borderRadius:"6px", textDecoration:"none", width:"fit-content" }}>
               <span>📞</span>
               <span style={{ ...H, fontWeight:700, fontSize:"0.85rem" }}>91461 71008</span>
             </a>
