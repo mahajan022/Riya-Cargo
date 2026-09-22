@@ -68,6 +68,7 @@ const G = () => (
       .hero-bottom p{max-width:100%!important}
       .hero-stats{justify-content:flex-start!important}
       .hero-dots{justify-content:flex-start!important}
+      .hero-arrow{display:none!important}
       .sec{padding:3rem 1.2rem!important}
       .ph{padding:4rem 1.2rem 2rem!important}
       .sticky-cta { display:flex!important; }
@@ -237,7 +238,9 @@ const Hero = ({ setPage }) => {
   const [form, setForm] = useState({ name:"", phone:"", from:"", to:"", service:"", date:"" });
   const [st, setSt] = useState("idle");
   const [shakePhone, setShakePhone] = useState(false);
-  const slides = [REAL_14, REAL_09, REAL_03, REAL_13];
+  const slides = [REAL_01, REAL_03, REAL_10, REAL_09, REAL_12, REAL_13];
+  const prevSlide = () => setSl(s => (s-1+slides.length)%slides.length);
+  const nextSlide = () => setSl(s => (s+1)%slides.length);
   useEffect(()=>{ const t=setInterval(()=>setSl(s=>(s+1)%slides.length),5000); return()=>clearInterval(t); },[]);
 
   // Urgency: countdown to end of day
@@ -283,6 +286,14 @@ const Hero = ({ setPage }) => {
         ))}
         <div style={{ position:"absolute", inset:0, background:"linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.25) 100%)" }} />
       </div>
+
+      {/* Prev/Next arrows */}
+      <button className="hero-arrow" onClick={prevSlide} aria-label="Previous slide"
+        style={{ position:"absolute", left:"14px", top:"50%", transform:"translateY(-50%)", zIndex:6, width:"38px", height:"38px", borderRadius:"50%", background:"rgba(0,0,0,0.35)", border:"1px solid rgba(255,255,255,0.35)", color:"white", fontSize:"1.1rem", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", transition:"background 0.2s" }}
+        onMouseEnter={e=>e.currentTarget.style.background="rgba(212,153,26,0.7)"} onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,0.35)"}>‹</button>
+      <button className="hero-arrow" onClick={nextSlide} aria-label="Next slide"
+        style={{ position:"absolute", right:"14px", top:"50%", transform:"translateY(-50%)", zIndex:6, width:"38px", height:"38px", borderRadius:"50%", background:"rgba(0,0,0,0.35)", border:"1px solid rgba(255,255,255,0.35)", color:"white", fontSize:"1.1rem", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", transition:"background 0.2s" }}
+        onMouseEnter={e=>e.currentTarget.style.background="rgba(212,153,26,0.7)"} onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,0.35)"}>›</button>
 
       <div className="hero-inner" style={{ position:"relative", zIndex:5, maxWidth:"1280px", margin:"0 auto", padding:"5rem 2.5rem 3.5rem", minHeight:"88vh" }}>
 
@@ -654,7 +665,7 @@ const Home = ({ setPage }) => {
             <h2 style={{ ...H, fontWeight:800, fontSize:"clamp(1.5rem,3vw,2.4rem)", color:"var(--black)" }}>See What We <span style={{ color:"var(--acc)" }}>Do Best</span></h2>
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", gridTemplateRows:"190px 190px", gap:"10px" }}>
-            {[IMG_WORKERS,REAL_11,REAL_12,IMG_WH1,REAL_14].map((src,i)=>(
+            {[IMG_WORKERS,REAL_11,REAL_12,IMG_WH1,REAL_13].map((src,i)=>(
               <div key={i} style={{ overflow:"hidden", borderRadius:"6px", gridRow:i===0?"span 2":undefined }}>
                 <img src={src} style={{ width:"100%", height:"100%", objectFit:"cover", transition:"transform 0.5s" }} onMouseEnter={e=>e.target.style.transform="scale(1.06)"} onMouseLeave={e=>e.target.style.transform="scale(1)"} alt="Packers Movers Pune" />
               </div>
@@ -840,7 +851,7 @@ const Gallery = ({ setPage }) => {
     {s:REAL_08,c:"Furniture Wrapped & Ready"},{s:REAL_09,c:"Sofa & Furniture Packing"},
     {s:REAL_10,c:"Boxes Stacked & Labeled"},{s:REAL_11,c:"Luggage & Personal Items"},
     {s:REAL_12,c:"Goods Packed Securely"},{s:REAL_13,c:"Two-Wheeler Wrapping"},
-    {s:REAL_14,c:"Crew at Work"},{s:REAL_15,c:"Pan-India Delivery"},
+    {s:REAL_14,c:"Pan-India Delivery"},{s:REAL_15,c:"Packing in Progress"},
   ];
   return (
     <div style={{ animation:"fadeIn 0.4s ease" }}>
