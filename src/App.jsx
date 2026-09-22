@@ -237,7 +237,7 @@ const Hero = ({ setPage }) => {
   const [form, setForm] = useState({ name:"", phone:"", from:"", to:"", service:"", date:"" });
   const [st, setSt] = useState("idle");
   const [shakePhone, setShakePhone] = useState(false);
-  const slides = [IMG_WORKERS, REAL_08, REAL_03, REAL_13];
+  const slides = [REAL_14, REAL_09, REAL_03, REAL_13];
   useEffect(()=>{ const t=setInterval(()=>setSl(s=>(s+1)%slides.length),5000); return()=>clearInterval(t); },[]);
 
   // Urgency: countdown to end of day
